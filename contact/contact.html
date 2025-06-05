@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | BioATP</title>
+  <link rel="stylesheet" href="contact.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script defer src="contact.js"></script>
+</head>
+<body>
+  <section class="contact-section">
+    <div class="contact-container">
+      <h1>Contactez-nous</h1>
+      <p>Une question ? Une suggestion ? N’hésitez pas à nous écrire !</p>
+      
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label for="name">Nom complet</label>
+          <input type="text" id="name" name="from_name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Adresse e-mail</label>
+          <input type="email" id="email" name="reply_to" required />
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Sujet</label>
+          <input type="text" id="subject" name="subject" required />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="btn">📩 Envoyer le message</button>
+        <p class="confirmation" id="confirmationMessage">✅ Message envoyé avec succès !</p>
+      </form>
+    </div>
+  </section>
+</body>
+</html>

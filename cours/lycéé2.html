@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cours de Licence - BioATP</title>
+  <link rel="stylesheet" href="featurest.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script defer src="featurest.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+  
+    <header class="header">
+        <div class="logo-section">
+            <img src="OIP.jpg" alt="BioATP Logo" class="logo">
+            <h1>BioATP</h1>
+        </div>
+
+        <h2 class="title">COURS DE LYCEE</h2>
+
+        <div class="search-section">
+            <div class="search-container">
+              <input type="text" id="search-input" placeholder="Rechercher un cours...">
+              <div class="search-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#1976d2">
+                  <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 5 1.5-1.5-5-5zm-6 0C8.01 14 6 11.99 6 9.5S8.01 5 10.5 5 15 7.01 15 9.5 12.99 14 10.5 14z"/>
+                </svg>
+              </div>
+            </div>
+          </div>   
+    </header>
+    
+  <nav class="navbar">
+    <div class="nav-container">
+      </div>
+      <ul class="nav-menu">
+        <li><a href="licence.html" class="active"><i class="fas fa-graduation-cap"></i> Licence</a></li>
+        <li><a href="lycee.html"><i class="fas fa-school"></i> Lycée</a></li>
+        <li><a href="college.html"><i class="fas fa-book"></i> Collège</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  
+  <main class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a> > <span>Licence</span>
+    </div>
+
+    <section class="stats">
+      <div class="stat-card">
+        <i class="fas fa-book-open"></i>
+        <h3>8</h3>
+        <p>Modules</p>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-file-pdf"></i>
+        <h3>38</h3>
+        <p>Documents</p>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-users"></i>
+        <h3>1,200+</h3>
+        <p>Étudiants</p>
+      </div>
+    </section>
+  </main>
+    <main class="container">
+        <section class="category">
+          
+          <h2 class="category-title" onclick="toggleCategory(this)">
+            2ème année du baccalauréat, SVT<i class="fas fa-chevron-down"></i>
+          </h2>
+          <div class="courses">
+            <article class="course-card">
+              <div class="course-content">
+        
+                <div class="course-card"><h3>Unité 1: Consommation de la matière organique et flux d’énergie</h3></div>
+    
+                <ul class="chapter-list">
+                  <li><p>📘 Ch1 :Libération de l’énergie emmagasinée dans la matière organique</p> <a href="2EME BAC/Cours-Unit1-1.pdf" class="btn">Voir le cours</a><a href="2EME BAC/Cours-Unit1-1.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 Ch2 :Rôle du muscle squelettique strié dans la conversion de l’énergie</p> <a href="2EME BAC/Cours-Unit1-2.pdf" class="btn">Voir le cours</a><a href="2EME BAC/Cours-Unit1-2.pdf" class="btn download">Télécharger</a></li> 
+                
+                </ul>
+                <div class="course-card"><h3>Unité 2:Nature et mécanisme de l’expression du matériel génétique et le génie génétique  </h3></div>
+                <ul class="chapter-list">
+                  <li><p>📘 Ch1 :Nature de l’information génétique </p> <a href="2EME BAC/Cours-Unit2-1.pdf" class="btn">Voir le cours</a><a href="2EME BAC/Cours-Unit2-1.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 Ch2 :Expression de l’information génétique</p> <a href="2EME BAC/Cours-Unit2-2.pdf" class="btn">Voir le cours</a><a href="2EME BAC/Cours-Unit2-2.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 Ch3 :Le génie génétique: Principes et techniques</p> <a href="2EME BAC/Cours-Unit2-3.pdf" class="btn">Voir le cours</a><a href="2EME BAC/Cours-Unit2-3.pdf" class="btn download">Télécharger</a></li> 
+                </ul>
+                  <div class="course-card"><h3>Unité 3:Transfert de l’information génétique au cours de la reproduction sexuée - Les lois statistiques de la transmission des caractères héréditaires chez les diploïdes - La génétique humaine</h3></div>
+                <ul class="chapter-list">
+                  <li><p>📘 Ch1 :Transfert de l’information génétique au cours de la reproduction sexuée</p> <a href="2EME BAC/Cours-Unit3-1.pdf" class="btn">Voir le cours</a><a href="2EME BAC/Cours-Unit3-1.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 Ch2 :Les lois statistiques de la transmission des caractères héréditaires chez les diploïdes</p> <a href="2EME BAC/Cours-Unit3-2.pdf" class="btn">Voir le cours</a><a href="2EME BAC/Cours-Unit3-2.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 Ch3 :L’hérédité humaine</p> <a href="2EME BAC/Cours-Unit3-3.pdf" class="btn">Voir le cours</a><a href="2EME BAC/Cours-Unit3-3.pdf" class="btn download">Télécharger</a></li> 
+    
+                </ul>
+                <div class="course-card"><h3>Unité 4: La génétique des populations</h3></div>
+                <ul class="chapter-list">
+                  <li><p>📘 La génétique des populations : </p> <a href="2EME BAC/Cours-Unit4.pdf" class="btn">Voir le cours</a><a href="2EME BAC/Cours-Unit4.pdf" class="btn download">Télécharger</a></li> 
+                </ul>
+                <div class="course-card"><h3>Unité 5: Immunologie</h3></div>
+                <ul class="chapter-list">
+                  <li><p>📘 Ch1 :Notion de soi et de non soi </p> <a href="2EME BAC/Cours-Unit5-1.pdf" class="btn">Voir le cours</a><a href="2EME BAC/Cours-Unit5-1.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 Ch2 :Les moyens de défense de soi</p> <a href="2EME BAC/Cours-Unit5-2.pdf" class="btn">Voir le cours</a><a href="2EME BAC/Cours-Unit5-2.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 Ch3 :Quelques dysfonctionnements du système immunitaire </p> <a href="2EME BAC/Cours-Unit5-3.pdf" class="btn">Voir le cours</a><a href="2EME BAC/Cours-Unit5-3.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 Ch4 :Moyens d’aide au système immunitaire </p> <a href="2EME BAC/Cours-Unit5-4.pdf" class="btn">Voir le cours</a><a href="2EME BAC/Cours-Unit5-4.pdf" class="btn download">Télécharger</a></li> 
+    
+                </ul>
+                <div class="course-card"><h3>Unité 6: Les phénomènes géologiques accompagnant la formation des chaînes de montagnes et leur relation avec la tectonique des plaques</h3></div>
+                <ul class="chapter-list">
+                  <li><p>📘 Ch1 :Les chaînes de montagnes récentes et leurs relation avec la tectonique des plaques </p> <a href="2EME BAC/Cours-Unit6-1.pdf" class="btn">Voir le cours</a><a href="2EME BAC/Cours-Unit6-1.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 Ch2 :Le métamorphisme et sa relation avec la tectonique des plaques </p> <a href="2EME BAC/Cours-Unit6-2.pdf" class="btn">Voir le cours</a><a href="2EME BAC/Cours-Unit6-2.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 Ch3 :La granitisation et sa relation avec le métamorphisme </p> <a href="2EME BAC/Cours-Unit6-3.pdf" class="btn">Voir le cours</a><a href="2EME BAC/Cours-Unit6-3.pdf" class="btn download">Télécharger</a></li> 
+    
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+       
+        <section class="category">
+          
+          <h2 class="category-title" onclick="toggleCategory(this)">
+            1ère année du baccalauréat, Sciences expérimentales<i class="fas fa-chevron-down"></i>
+          </h2>
+          <div class="courses">
+            <article class="course-card">
+              <div class="course-content">
+        
+                <div class="course-card"><h3>Unité 1: Phénomènes géologiques externes</h3></div>
+    
+                <ul class="chapter-list">
+                  <li><p>📘 Ch1 :Réalisation de la carte paléogéographique d’une région </p> <a href="1er bac/Cours-1ere-sc-Unit1-1.pdf" class="btn">Voir le cours</a><a href="1er bac/Cours-1ere-sc-Unit1-1.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 Ch2 : Histoire géologique d’une région sédimentaire tabulaire</p> <a href="1er bac/Cours-1ere-sc-Unit1-2.pdf" class="btn">Voir le cours</a><a href="1er bac/Cours-1ere-sc-Unit1-2.pdf" class="btn download">Télécharger</a></li> 
+                </ul>
+                <div class="course-card"><h3>Unité 2: Production de la matière organique et flux d’énergie</h3></div>
+                <ul class="chapter-list">
+                  <li><p>📘 Ch1 :Mécanismes d’absorption de l’eau et des sels minéraux chez les plantes </p> <a href="1er bac/Cours-1ere-sc-Unit2-1.pdf" class="btn">Voir le cours</a><a href="1er bac/Cours-1ere-sc-Unit2-1.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 Ch2 :Echanges gazeux chlorophylliens et production de la matière organique</p> <a href="1er bac/Cours-1ere-sc-Unit2-2.pdf" class="btn">Voir le cours</a><a href="1er bac/Cours-1ere-sc-Unit2-2.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 Ch3 :Conversion de l’énergie lumineuse en énergie chimique et synthèse de la matière organique </p> <a href="1er bac/Cours-1ere-sc-Unit2-3.pdf" class="btn">Voir le cours</a><a href="1er bac/Cours-1ere-sc-Unit2-3.pdf" class="btn download">Télécharger</a></li> 
+                </ul>
+                  <div class="course-card"><h3>Unité 3: Les communications hormonales et nerveuses</h3></div>
+                <ul class="chapter-list">
+                  <li><p>📘 Ch1 :Communication hormonale</p> <a href="1er bac/Cours-1ere-sc-Unit3-1.pdf" class="btn">Voir le cours</a><a href="1er bac/Cours-1ere-sc-Unit3-1.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 Ch2 :Communication nerveuse</p> <a href="1er bac/Cours-1ere-sc-Unit3-2.pdf" class="btn">Voir le cours</a><a href="1er bac/Cours-1ere-sc-Unit3-2.pdf" class="btn download">Télécharger</a></li> 
+                </ul>
+                <div class="course-card"><h3>Unité 4: Intégration neuro-hormonale</h3></div>
+                <ul class="chapter-list">
+                  <li><p>📘 Ch1 :Régulation de la fonction de reproduction humaine </p> <a href="1er bac/Cours-1ere-sc-Unit4-1.pdf" class="btn">Voir le cours</a><a href="1er bac/Cours-1ere-sc-Unit4-1.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 Ch2 :Régulation de la préssion artérielle et la maintien de l’équilibre hydrominéral. </p> <a href="1er bac/Cours-1ere-sc-Unit4-2.pdf" class="btn">Voir le cours</a><a href="1er bac/Cours-1ere-sc-Unit4-2.pdf" class="btn download">Télécharger</a></li> 
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+        
+        <section class="category">
+          
+          <h2 class="category-title" onclick="toggleCategory(this)">
+            Tronc Commun Sciences<i class="fas fa-chevron-down"></i>
+          </h2>
+          <div class="courses">
+            <article class="course-card">
+              <div class="course-content">
+        
+                <div class="course-card"><h3> Partie 1: L’ECOLOGIE</h3></div>
+    
+                <ul class="chapter-list">
+                
+                 
+                  <li><p>📘 CH1 :Les techniques adaptatives à l’étude écologique sur le terrain </p> <a href="tronc/cours-tc-sc-unit1-1.pdf" class="btn">Voir le cours</a><a href="tronc/cours-tc-sc-unit1-1.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 CH2 :Les facteurs édaphiques et leurs relations avec les êtres vivants </p> <a href="tronc/cours-tc-sc-unit1-2.pdf" class="btn">Voir le cours</a><a href="tronc/cours-tc-sc-unit1-2.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 CH3 :Les facteurs climatiques et leurs relations avec les êtres vivants</p> <a href="tronc/cours-tc-sc-unit1-3.pdf" class="btn">Voir le cours</a><a href="tronc/cours-tc-sc-unit1-3.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 CH4 :Flux de la matière et de l’énergie dans l’écosystème</p> <a href="tronc/cours-tc-sc-unit1-4.pdf" class="btn">Voir le cours</a><a href="tronc/cours-tc-sc-unit1-4.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 CH5 :Les équilibres naturels</p> <a href="tronc/cours-tc-sc-unit1-5.pdf" class="btn">Voir le cours</a><a href="tronc/cours-tc-sc-unit1-5.pdf" class="btn download">Télécharger</a></li> 
+    
+                </ul>
+                <div class="course-card"><h3> Partie 2 : LA REPRODUCTION CHEZ LES PLANTESE</h3></div>
+                <ul class="chapter-list">              
+                  <li><p>📘 CH1 :La reproduction sexuée chez les plantes à fleurs </p> <a href="tronc/cours-tc-sc-unit2-1.pdf" class="btn">Voir le cours</a><a href="tronc/cours-tc-sc-unit2-1.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 CH2 :La reproduction sexuée chez les plantes sans fleurs </p> <a href="tronc/cours-tc-sc-unit2-2.pdf" class="btn">Voir le cours</a><a href="tronc/cours-tc-sc-unit2-2.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 CH3 :Les cycles de développement des plantes</p> <a href="tronc/cours-tc-sc-unit2-3.pdf" class="btn">Voir le cours</a><a href="tronc/cours-tc-sc-unit2-3.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 CH4 :La reproduction asexuée chez les plantes</p> <a href="tronc/cours-tc-sc-unit2-4.pdf" class="btn">Voir le cours</a><a href="tronc/cours-tc-sc-unit2-4.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 CH5 :La modification génétique des plantes </p> <a href="tronc/cours-tc-sc-unit2-5.pdf" class="btn">Voir le cours</a><a href="tronc/cours-tc-sc-unit2-5.pdf" class="btn download">Télécharger</a></li> 
+                  <li><p>📘 CH6 :La classification des plantes </p> <a href="tronc/cours-tc-sc-unit2-6.pdf" class="btn">Voir le cours</a><a href="tronc/cours-tc-sc-unit2-6.pdf" class="btn download">Télécharger</a></li> 
+                </ul>
+    
+              </div>
+            </article>
+          </div>
+        </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>BioATP</h3>
+          <p>Plateforme éducative pour les étudiants en biologie et sciences naturelles.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+  
+        <div class="footer-section">
+          <h3>Liens rapides</h3>
+          <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">Licence</a></li>
+            <li><a href="#">Master</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+  
+        <div class="footer-section">
+          <h3>Newsletter</h3>
+          <p>Abonnez-vous pour recevoir les nouveaux cours.</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Votre email">
+            <button><i class="fa-solid fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="footer-bottom">
+        <p>&copy; 2025 BioATP - Tous droits réservés.</p>
+        <div class="footer-links">
+          <a href="#">Confidentialité</a>
+          <a href="#">Conditions</a>
+          <a href="#">FAQ</a>
+        </div>
+      </div>
+    </footer>
+  
+    </body>
+      
+    </html>

@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioATP - Plateforme Éducative</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script defer src="index.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+   <header class="header">
+  <div class="logo">
+    <i class="fas fa-dna"></i> BioATP
+  </div>
+
+  <!-- Bouton hamburger pour mobile -->
+  <div class="menu-toggle" id="menu-toggle">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <nav class="nav-container">
+    <ul class="main-menu">
+      <li><a href="#"><i class="fas fa-home"></i> Accueil</a></li>
+      <li class="has-submenu">
+        <a href="#" class="submenu-toggle"><i class="fas fa-book-open"></i> Cours</a>
+        <ul class="submenu">
+          <li><a href="cours/LMD1.html"><i class="fas fa-user-graduate"></i> Licence</a></li>
+          <li><a href="cours/lycéé2.html"><i class="fas fa-pencil-ruler"></i> Lycéens</a></li>
+          <li><a href="cours/collége.html"><i class="fas fa-child"></i> Collège</a></li>
+        </ul>
+      </li>
+      <li><a href="quiz/quiz.html"><i class="fas fa-question-circle"></i> Quiz</a></li>
+      <li><a href="cours/master.html"><i class="fas fa-graduation-cap"></i> Masters</a></li>
+      <li><a href="contact/contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+    <!-- Hero Section -->
+    <section class="hero-section" data-aos="fade-up">
+        <div class="hero-content">
+            <h1 class="hero-title">BioATP</h1>
+            <p class="hero-text"><strong>Découvrez une plateforme interactive avec des ressources pédagogiques modernes et des outils d'apprentissage innovants.</strong></p>
+            <button class="cta-button">Bonjoure dans le monde de La biologie</button>
+        </div>
+        <div class="hero-scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+   
+
+<section class="masters-section">
+  <h2 class="masters-title">📢 Nouveaux Masters Ouverts</h2>
+  <p class="masters-subtitle">Retrouvez ici les dernières ouvertures de Master en biologie et domaines scientifiques au Maroc.</p>
+
+<div class="masters-grid">
+<div class="master-card">
+  <h3>Master Biotechnologie Végétale – FST Marrakech</h3>
+  <p>📅 Inscription : <em>Non encore annoncée</em> </p>
+
+  <div class="master-card-footer">
+    <button disabled class="master-btn disabled">À venir</button>
+    <div class="master-status-upcoming">
+      <span class="master-blue-dot"></span>
+      <span class="master-status-label">À venir</span>
+    </div>
+  </div>
+</div>
+
+<div class="master-card">
+  <h3>Master Microbiologie Appliquée – FS Tétouan</h3>
+  <p>📅 Ouverture prévue :<em>Non encore annoncée</em> </p>
+  <div class="master-card-footer">
+    <button disabled class="master-btn disabled">À venir</button>
+    <div class="master-status-upcoming">
+      <span class="master-blue-dot"></span>
+      <span class="master-status-label">À venir</span>
+    </div>
+  </div>
+</div>
+
+<div class="master-card">
+  <h3>Master Génétique et Amélioration des Plantes – FS Meknès</h3>
+  <p>📅 Date d’ouverture : <em>Non encore annoncée</em></p>
+  <div class="master-card-footer">
+    <button disabled class="master-btn disabled">À confirmer</button>
+    <div class="master-status-pending">
+      <span class="master-gray-dot"></span>
+      <span class="master-status-label">À confirmer</span>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="masters-discover-more">
+    <a href="cours/master.html" class="masters-discover-btn">🔍 Découvrir plus de Masters</a>
+</div>
+</section>
+    <!-- Section Évolution Biologie -->
+   <section class="biology-evolution section">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-right">
+      <span class="title-decorative-line"></span>
+      <span class="title-text">L'Évolution de la Biologie Moderne</span>
+      <span class="title-decorative-line"></span>
+    </h2>
+
+    <div class="card-grid">
+      <!-- Carte 1953 -->
+      <div class="evolution-card" data-aos="zoom-in">
+        <img src="DNA ST.jpg" alt="Structure ADN">
+        <div class="card-content">
+          <h3>1953 – Découverte de l'ADN <i class="fas fa-dna"></i></h3>
+          <p>Watson et Crick décrivent la structure en double hélice de l'ADN, révolutionnant la génétique moderne.</p>
+        </div>
+      </div>
+
+      <!-- Carte 1977 -->
+      <div class="evolution-card" data-aos="zoom-in">
+        <img src="exons-introns-epissage.jpg" alt="Introns illustration">
+        <div class="card-content">
+          <h3>1977 – Introns & Épissage <i class="fas fa-code-branch"></i></h3>
+          <p>La découverte des introns a révélé que l’ADN contient des segments non codants, modifiant notre compréhension du génome.</p>
+        </div>
+      </div>
+
+      <!-- Carte 1983 -->
+      <div class="evolution-card" data-aos="zoom-in">
+        <img src="pcr.jpeg" alt="PCR process">
+        <div class="card-content">
+          <h3>1983 – Invention de la PCR <i class="fas fa-vial"></i></h3>
+          <p>Kary Mullis invente la PCR, permettant d’amplifier l’ADN rapidement, révolutionnant la biologie moléculaire.</p>
+        </div>
+      </div>
+
+      <!-- Carte 2003 -->
+      <div class="evolution-card" data-aos="zoom-in">
+        <img src="AdobeStock_237602801 (1).jpeg" alt="Génome humain">
+        <div class="card-content">
+          <h3>2003 – Projet Génome Humain <i class="fas fa-user-circle"></i></h3>
+          <p>Cartographie complète du génome humain, ouvrant la voie à la médecine personnalisée.</p>
+        </div>
+      </div>
+
+      <!-- Carte 2012 -->
+      <div class="evolution-card" data-aos="zoom-in">
+        <img src="CRISPR.jpg" alt="CRISPR">
+        <div class="card-content">
+          <h3>2012 – CRISPR-Cas9 <i class="fas fa-dna"></i></h3>
+          <p>CRISPR permet l’édition génétique précise, ouvrant de nouvelles possibilités en thérapie génique.</p>
+        </div>
+      </div>
+
+      <!-- Carte 2020 -->
+      <div class="evolution-card" data-aos="zoom-in">
+        <img src="vaccinatin arn.jpg" alt="Vaccin ARNm">
+        <div class="card-content">
+          <h3>2020 – Vaccins à ARNm <i class="fas fa-syringe"></i></h3>
+          <p>Première utilisation massive de vaccins à ARN messager pour lutter contre la COVID-19.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Section Actualités -->
+    <section class="news-section section">
+        
+        <h2 class="section-title" data-aos="fade-right">
+            <span class="title-decorative-line"></span>
+            <span class="title-text">Dernières Découvertes</span>
+            <span class="title-decorative-line"></span>
+        </h2>
+        <div class="news-grid">
+            <article class="news-card" data-aos="flip-left">
+                <div class="news-image">
+                    <img src="https://images.unsplash.com/photo-1575503802870-45de6a6217c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                         alt="Recherche médicale">
+                    <div class="news-tag">Découverte</div>
+                </div>
+                <div class="news-content">
+                    <time datetime="2024-03-15"><i class="fas fa-calendar-alt"></i> 15 Mars 2024</time>
+                    <h3>Nouveau Traitement contre le Cancer</h3>
+                    <p>Des chercheurs marocains développent une thérapie ciblée basée sur l'immunothérapie...</p>
+                    <a href="decouvert/1de.html" class="news-link">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="news-card" data-aos="flip-left" data-aos-delay="100">
+                <div class="news-image">
+                    <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                         alt="Micro-organismes">
+                    <div class="news-tag">Microbiologie</div>
+                </div>
+                <div class="news-content">
+                    <time datetime="2024-03-12"><i class="fas fa-calendar-alt"></i> 12 Mars 2024</time>
+                    <h3>Découverte de Bactéries Extrêmophiles</h3>
+                    <p>Une nouvelle espèce découverte dans les sources chaudes de l'Atlas...</p>
+                    <a href="decouvert/2dec.html" class="news-link">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+    </section>
+<!-- Section Référence vers vos autres pages -->
+<section class="related-pages">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-right">
+            <span class="title-decorative-line"></span>
+            <span class="title-text">Explorer Nos Autres Ressources</span>
+            <span class="title-decorative-line"></span>
+        </h2>
+        <div class="page-grid">
+            <!-- Carte Masters -->
+            <a href="masters.html" class="page-card">
+                <div class="page-icon" style="background-color: #3498db;">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Masters au Maroc</h3>
+                <p>Découvrez l'offre complète des programmes Master en sciences et santé</p>
+                <span class="page-link">Visiter la page <i class="fas fa-arrow-right"></i></span>
+            </a>
+            
+            <!-- Carte Licence -->
+            <a href="cours/LMD1.html" class="page-card">
+                <div class="page-icon" style="background-color: #2ecc71;">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3>Parcours Licence</h3>
+                <p>Toutes les filières universitaires scientifiques disponibles</p>
+                <span class="page-link">Visiter la page <i class="fas fa-arrow-right"></i></span>
+            </a>
+            
+            <!-- Carte Lycée -->
+            <a href="lycee.html" class="page-card">
+                <div class="page-icon" style="background-color: #e74c3c;">
+                    <i class="fas fa-school"></i>
+                </div>
+                <h3>Programmes Lycée</h3>
+                <p>Orientation pour les bacheliers scientifiques</p>
+                <span class="page-link">Visiter la page <i class="fas fa-arrow-right"></i></span>
+            </a>
+        </div>
+    </div>
+</section>
+
+ <section class="epigenetics-section">
+    <h2>🧬 L'Épigénétique</h2>
+    <p>L’épigénétique explique comment notre mode de vie peut influencer nos gènes sans changer notre ADN.</p>
+
+    <div class="epigenetics-content">
+      <div class="epigenetics-image">
+        <img src="epegentique.jpeg" alt="Mécanismes épigénétiques">
+        <img src="epig2.png" alt="Mécanismes épigénétiques">
+      </div>
+
+      <div class="epigenetics-text">
+        <h3>🔍 Qu'est-ce que l'épigénétique ?</h3>
+        <p>
+          L’épigénétique est une science qui étudie les modifications réversibles de l’expression des gènes, sans modification de la séquence d’ADN. Ces changements influencent comment et quand les gènes sont activés ou désactivés.
+        </p>
+
+        <h3>⚙️ Mécanismes Épigénétiques</h3>
+        <ul>
+          <li><strong>Méthylation de l’ADN</strong> : ajout d’un groupe méthyle sur l’ADN, souvent pour inhiber l’expression d’un gène.</li>
+          <li><strong>Modification des histones</strong> : altère la structure de la chromatine et rend certains gènes plus accessibles.</li>
+          <li><strong>ARN non codants</strong> : petits ARN régulateurs qui modulent l’expression des gènes.</li>
+        </ul>
+
+        <h3>🌍 Influence de l’environnement</h3>
+        <p>
+          L’alimentation, le stress, le sommeil, les toxines et même les émotions peuvent avoir un impact épigénétique. Cela signifie que nos choix de vie peuvent influencer notre santé... et celle de nos descendants !
+        </p>
+<h3>🧪 Exemples concrets d’épigénétique</h3>
+<ul>
+  <li><strong>Jumeaux identiques :</strong> Bien qu’ils partagent le même ADN, leur mode de vie peut entraîner des différences d’expression génique avec l’âge (par exemple, un peut développer un cancer et l’autre non).</li>
+  <li><strong>Effet du régime alimentaire :</strong> L’alimentation de la mère pendant la grossesse peut influencer la santé de l’enfant via des marques épigénétiques (ex : famine des Pays-Bas en 1944).</li>
+  <li><strong>Réversibilité du stress :</strong> Des expériences de stress chez la souris ont montré une transmission de traits de stress aux descendants, mais aussi une réversibilité grâce à des soins maternels positifs.</li>
+  <li><strong>Abeilles :</strong> Toutes les abeilles ont le même génome, mais la nourriture (gelée royale) donnée aux larves détermine si elles deviennent reines ou ouvrières.</li>
+  <li><strong>Tabagisme :</strong> Le tabac peut modifier l’expression de certains gènes liés à l’inflammation ou au cancer, sans toucher à la séquence ADN.</li>
+</ul>
+
+        <button id="learnMoreBtn">📘 En savoir plus</button>
+      </div>
+    </div>
+  </section>
+    <!-- Section Témoignages -->
+    
+
+    <!-- Section Citation -->
+     <section id="cell-types" class="container">
+  <h2>Types de Cellules & Leurs Différences</h2>
+  <p>Découvrez les différents types de cellules avec leurs composants caractéristiques.</p>
+
+  <div class="cells-grid">
+    <!-- Cellule animale -->
+    <div class="cell-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Animal_cell_structure_fr.svg/320px-Animal_cell_structure_fr.svg.png" alt="Cellule animale" />
+      <h3>Cellule Animale</h3>
+      <ul>
+        <li>Noyau</li>
+        <li>Mitochondrie</li>
+        <li>Membrane plasmique</li>
+        <li>Ribosomes</li>
+      </ul>
+      <p>Cellule sans paroi, contient des lysosomes et des centrosomes.</p>
+    </div>
+
+    <!-- Cellule végétale -->
+    <div class="cell-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Plant_cell_structure_fr.svg/320px-Plant_cell_structure_fr.svg.png" alt="Cellule végétale" />
+      <h3>Cellule Végétale</h3>
+      <ul>
+        <li>Paroi cellulaire</li>
+        <li>Chloroplaste</li>
+        <li>Vacuole centrale</li>
+        <li>Noyau</li>
+      </ul>
+      <p>Possède une paroi rigide et des chloroplastes pour la photosynthèse.</p>
+    </div>
+
+    <!-- Cellule procaryote -->
+    <div class="cell-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Prokaryote_cell_structure.svg/320px-Prokaryote_cell_structure.svg.png" alt="Cellule procaryote" />
+      <h3>Cellule Procaryote</h3>
+      <ul>
+        <li>ADN libre dans le cytoplasme</li>
+        <li>Paroi cellulaire</li>
+        <li>Membrane plasmique</li>
+        <li>Ribosomes</li>
+      </ul>
+      <p>Cellule simple sans noyau, ADN flottant dans le cytoplasme.</p>
+    </div>
+  </div>
+</section>
+
+    <section class="p-6">
+  <div class="max-w-7xl mx-auto">
+    <h1 class="text-4xl font-bold text-center text-blue-700 mb-12">Types de Cellules</h1>
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <!-- Cellule Animale -->
+      <div class="card bg-white rounded-xl overflow-hidden shadow-md p-4">
+        <img src="cellule animale.jpg" alt="Cellule Animale" class="w-full h-48 object-contain mb-4">
+        <h2 class="text-xl font-semibold text-blue-600">Cellule Animale</h2>
+        <p class="text-gray-700">Cellule eucaryote sans paroi cellulaire ni chloroplastes, présente chez les animaux.</p>
+      </div>
+
+      <!-- Cellule Végétale -->
+      <div class="card bg-white rounded-xl overflow-hidden shadow-md p-4">
+        <img src="cellule vegetale.jpeg" alt="Cellule Végétale" class="w-full h-48 object-contain mb-4">
+        <h2 class="text-xl font-semibold text-green-600">Cellule Végétale</h2>
+        <p class="text-gray-700">Cellule eucaryote avec paroi cellulaire, vacuole centrale et chloroplastes.</p>
+      </div>
+
+      <!-- Cellule Procaryote -->
+      <div class="card bg-white rounded-xl overflow-hidden shadow-md p-4">
+        <img src="celule procaryote.png" alt="Cellule Procaryote" class="w-full h-48 object-contain mb-4">
+        <h2 class="text-xl font-semibold text-red-600">Cellule Procaryote</h2>
+        <p class="text-gray-700">Cellule simple sans noyau, typique des bactéries.</p>
+      </div>
+
+      <!-- Cellule Nerveuse -->
+      <div class="card bg-white rounded-xl overflow-hidden shadow-md p-4">
+        <img src="cellule nervaux.jpg" alt="Cellule Nerveuse" class="w-full h-48 object-contain mb-4">
+        <h2 class="text-xl font-semibold text-purple-600">Cellule Nerveuse (Neurone)</h2>
+        <p class="text-gray-700">Transmet les signaux électriques dans le système nerveux.</p>
+      </div>
+
+      <!-- Globule Rouge -->
+      <div class="card bg-white rounded-xl overflow-hidden shadow-md p-4">
+        <img src="glouble rouge.jpeg" alt="Globule Rouge" class="w-full h-48 object-contain mb-4">
+        <h2 class="text-xl font-semibold text-rose-600">Globule Rouge (Érythrocyte)</h2>
+        <p class="text-gray-700">Transport de l'oxygène grâce à l'hémoglobine.</p>
+      </div>
+
+      <!-- Cellule Musculaire -->
+      <div class="card bg-white rounded-xl overflow-hidden shadow-md p-4">
+        <img src="cellule musculaire.jpeg" alt="Cellule Musculaire" class="w-full h-48 object-contain mb-4">
+        <h2 class="text-xl font-semibold text-yellow-600">Cellule Musculaire</h2>
+        <p class="text-gray-700">Spécialisée dans la contraction pour permettre le mouvement.</p>
+      </div>
+    </div>
+</div>
+    </section>    
+    <section class="climate-section">
+  <h2>🌡️ Changements Climatiques</h2>
+  <p>Le changement climatique représente l’un des plus grands défis pour notre planète au XXIe siècle.</p>
+
+  <div class="climate-content">
+    <div class="climate-image">
+      <img src="changment climatique.jpg" alt="Changements climatiques">
+    </div>
+
+    <div class="climate-text">
+      <h3>🌍 Qu’est-ce que le changement climatique ?</h3>
+      <p>Il s’agit d’une modification durable des températures, des précipitations et des événements climatiques sur Terre, causée en grande partie par les activités humaines.</p>
+
+      <h3>🔥 Causes principales</h3>
+      <ul>
+        <li>Émissions de gaz à effet de serre (CO₂, CH₄, N₂O)</li>
+        <li>Déforestation et perte des puits de carbone</li>
+        <li>Utilisation massive des énergies fossiles</li>
+        <li>Industrialisation et agriculture intensive</li>
+      </ul>
+
+      <h3>🌪️ Conséquences</h3>
+      <ul>
+        <li>Fonte des glaciers et montée du niveau des mers</li>
+        <li>Canicules, sécheresses, incendies, inondations</li>
+        <li>Disparition d’espèces et perturbation des écosystèmes</li>
+        <li>Impact sur la santé humaine et les ressources agricoles</li>
+      </ul>
+
+      <button id="factBtn">📘 Fait Scientifique</button>
+    </div>
+  </div>
+</section>  
+<section class="climate-section">
+  <h2>☣️ Pollution de l’Environnement</h2>
+  <p>La pollution représente une menace majeure pour la biodiversité, la santé humaine et l'équilibre des écosystèmes.</p>
+
+  <div class="climate-content">
+    <div class="climate-image">
+      <img src="poultion1.jpg" alt="Pollution de l'air">
+      <img src="poulltion2.jpg" alt="Pollution de l'air">
+    </div>
+
+
+    <div class="climate-text">
+      <h3>💨 Types de pollution</h3>
+      <ul>
+        <li><strong>Atmosphérique :</strong> émanations de CO₂, NOx, particules fines (PM2.5), ozone troposphérique</li>
+        <li><strong>Hydrique :</strong> pollution des mers, rivières et nappes par les plastiques, pesticides, huiles, métaux lourds</li>
+        <li><strong>Sol :</strong> accumulation de déchets, engrais chimiques, hydrocarbures</li>
+        <li><strong>Sonore & lumineuse :</strong> nuisances urbaines impactant faune, sommeil et santé mentale</li>
+      </ul>
+
+      <h3>⚠️ Causes principales</h3>
+      <ul>
+        <li>Industrie lourde et trafic routier</li>
+        <li>Mauvaise gestion des déchets</li>
+        <li>Utilisation excessive de produits chimiques</li>
+        <li>Urbanisation incontrôlée</li>
+      </ul>
+
+      <h3>🧬 Conséquences</h3>
+      <ul>
+        <li>Maladies respiratoires, cancers, troubles neurologiques</li>
+        <li>Contamination de l’eau potable et des sols agricoles</li>
+        <li>Disparition d’espèces aquatiques et terrestres</li>
+        <li>Accumulation de plastique dans les océans (ex: “7ème continent”)</li>
+      </ul>
+
+      <button id="pollutionFact">📘 Fait à savoir</button>
+    </div>
+  </div>
+</section>
+<section class="microbes-modern-section">
+  <h2>🧫 Micro-organismes Utiles</h2>
+  <p class="subtitle">
+    Bien que souvent associés aux maladies, de nombreux micro-organismes sont essentiels pour la santé humaine, l’agriculture et l’environnement.
+  </p>
+
+  <div class="microbes-grid">
+    <!-- Rhizobium -->
+    <div class="microbe-card">
+      <img src="rhizobuim.jpeg" alt="Rhizobium">
+      <h3>🌱 Rhizobium</h3>
+      <p>Ces bactéries vivent dans les racines des légumineuses et fixent l’azote de l’air, ce qui enrichit naturellement le sol.</p>
+    </div>
+
+    <!-- Lactobacillus -->
+    <div class="microbe-card">
+      <img src="lactobas.jpeg" alt="Lactobacillus">
+      <h3>🥛 Lactobacillus</h3>
+      <p>Utilisé dans la fabrication des yaourts et des probiotiques, il favorise une bonne digestion et équilibre la flore intestinale.</p>
+    </div>
+
+    <!-- Penicillium -->
+    <div class="microbe-card">
+      <img src="penicc.jpeg" alt="Penicillium">
+      <h3>💊 Penicillium</h3>
+      <p>Ce champignon microscopique est célèbre pour avoir donné naissance au premier antibiotique : la pénicilline.</p>
+    </div>
+
+    <!-- Saccharomyces -->
+    <div class="microbe-card">
+      <img src="sarcc.jpeg" alt="Saccharomyces">
+      <h3>🍞 Saccharomyces cerevisiae</h3>
+      <p>Une levure qui permet la fermentation du pain, du vin et de la bière depuis des millénaires.</p>
+    </div>
+  </div>
+
+  <button class="glass-button" id="microbesFact">📘 Le saviez-vous ?</button>
+</section>
+
+<script>
+  document.getElementById("microbesFact").addEventListener("click", () => {
+    alert("🧬 99% des micro-organismes sont inoffensifs ou bénéfiques. Ils sont partout : dans le sol, l’eau, notre corps… et ils sont essentiels à la vie !");
+  });
+</script>
+
+ <section class="creators" id="creators">
+  <div class="container">
+    <h2 class="title-creators">👨‍💻 Les créateurs du site</h2>
+    <div class="creator-grid">
+      <div class="creator-card">
+        <img src="mazouz.jpg" alt="Idzr Mazouz">
+        <h3>Idar Mazouz</h3>
+        <h2>master en biologie</h2>
+        <p>Développeur et designer web passionné par la technologie et l'innovation. Il a contribué à la structure, au design et à la logique du site.</p>
+      </div>
+      <div class="creator-card">
+        <img src="HAMID ZLOUZOU.jpg" alt="Hamid Zlouzou">
+        <h3>Hamid Zlouzou</h3>
+        <h2>responsable qualité </h2>
+        <p>Spécialiste du contenu et de l’organisation. Il s’est chargé de la rédaction, de l’optimisation et du suivi pédagogique du site.</p>
+      </div>
+    </div>
+  </div>
+</section>
+        <!-- Section Citation -->
+        <section class="quote-section section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title" data-aos="fade-right">
+                        <span class="title-decorative-line"></span>
+                        <span class="title-text">Citation Scientifique</span>
+                        <span class="title-decorative-line"></span>
+                    </h2>
+                    
+                    <p>Nouvelle citation toutes les 10 secondes</p>
+                </div>
+                
+                <div class="quote-card" data-aos="fade-up">
+                    <div class="quote-content">
+                        <i class="fas fa-quote-left"></i>
+                        <blockquote id="daily-quote">"La science est une histoire sans fin"</blockquote>
+                        <cite id="quote-author">- Max Planck</cite>
+                    </div>
+                    <div class="timer-bar">
+                        <div class="timer-progress" id="quote-timer"></div>
+                    </div>
+                    <button onclick="nextQuote()" class="cta-button">Citation suivante</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section Saviez-vous -->
+        <section class="didyouknow-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title" data-aos="fade-right">
+                        <span class="title-decorative-line"></span>
+                        <span class="title-text">Le Saviez-Vous ?</span>
+                        <span class="title-decorative-line"></span>
+                    </h2>
+                    <p>Un nouveau fait scientifique toutes les 10 secondes</p>
+                </div>
+                
+                <div class="didyouknow" data-aos="zoom-out">
+                    <div class="fact-content">
+                        <i class="fas fa-lightbulb"></i>
+                        <p id="fact-text">Le corps humain contient assez de carbone pour remplir 900 crayons</p>
+                    </div>
+                    <div class="timer-bar">
+                        <div class="timer-progress" id="fact-timer"></div>
+                    </div>
+                    <button onclick="nextFact()" class="cta-button">Fait suivant</button>
+                </div>
+            </div>
+        </section>
+        
+        
+    <!-- Section Podcast -->
+    
+
+    <!-- Section Saviez-vous -->
+    
+
+    <!-- Section Événements -->
+    <section class="timeline-section section">
+        <h2 class="section-title" data-aos="fade-right">
+            <span class="title-decorative-line"></span>
+            <span class="title-text">Événements Scientifiques</span>
+            <span class="title-decorative-line"></span>
+        </h2>
+        <div class="timeline">
+            <div class="timeline-event" data-aos="fade-right">
+                <div class="event-date">15 Oct</div>
+                <div class="event-content">
+                    <h3>Conférence Internationale de Biotechnologie</h3>
+                    <button class="cta-button">S'inscrire</button>
+                </div>
+            </div>
+        </div>   
+            <div class="timeline">
+                <div class="timeline-event" data-aos="fade-right">
+                    <div class="event-date">7 Mai</div>
+                    <div class="event-content">
+                        <h3>Conference — 3rd Targeting Therapy of Alzheimer’s and Related Neurodegenerative Diseases Conference  </h3>
+                        <button class="cta-button">S'inscrire</button>
+                    </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- Section Bio du Mois -->
+    <section class="biomonth-section section">
+
+        <h2 class="section-title" data-aos="fade-right">
+            <span class="title-decorative-line"></span>
+            <span class="title-text">Bio du Mois</span>
+            <span class="title-decorative-line"></span>
+        </h2>
+        <div class="scientist-card" data-aos="flip-up">
+            <img src="Rosalind Franklin.jpg" alt="Rosalind Franklin">
+            <div class="scientist-info">
+                <h3>Rosalind Franklin</h3>
+                <p>Chimiste britannique ayant contribué à la découverte de la structure de l'ADN</p>
+                <a href="#" class="news-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section" data-aos="fade-up">
+                <h4>BioATP</h4>
+                <p>Plateforme éducative dédiée à l'apprentissage de la biologie moderne</p>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://wa.me/+212600000000" target="_blank" class="social-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section" data-aos="fade-up" data-aos-delay="100">
+                <h4>Liens rapides</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> À propos</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Cours</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section" data-aos="fade-up" data-aos-delay="200">
+                <h4>Contact</h4>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> Casablanca, Maroc</li>
+                    <li><i class="fas fa-envelope"></i> contact@biotap.com</li>
+                    <li><i class="fas fa-phone"></i> +212 600-000000</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 BioATP. Tous droits réservés.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>

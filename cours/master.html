@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master de Biologie au Maroc - BioATP</title>
+    <link rel="stylesheet" href="MASTMAR.CSS">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script defer src="MASTMAR.JS"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            <a href="index.html" class="logo-link" aria-label="Accueil BioATP">
+                <img src="OIP.jpg" alt="Logo BioATP" class="logo">
+                <span class="site-title">BioATP</span>
+            </a>
+            <h1 class="page-title">MASTER DE BIOLOGIE AU MAROC</h1>
+            <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Ouvrir le menu de navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <nav class="main-navbar" id="main-nav">
+        <div class="nav-container">
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="master.html" class="active" role="menuitem"><i class="fas fa-graduation-cap"></i> Les Master</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <nav class="breadcrumb" aria-label="Chemin de navigation">
+            <ol>
+                <li><a href="index.html">Accueil</a></li>
+                <li><span aria-current="page">Les Masters</span></li>
+            </ol>
+        </nav>
+
+        <section class="stats-section">
+            <h2>Statistiques Clés</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-book-open" aria-hidden="true"></i>
+                    <span class="stat-number">16</span>
+                    <p class="stat-description">Facultés Partenaires</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                    <span class="stat-number">45</span>
+                    <p class="stat-description">Masters Proposés</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users" aria-hidden="true"></i>
+                    <span class="stat-number">1,200+</span>
+                    <p class="stat-description">Étudiants Inscrits</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="masters-list-section">
+            <h2>Explorer les Masters par Faculté</h2>
+
+            <article class="faculty-entry">
+                <h3 class="faculty-header" id="rabat-fs-header" tabindex="0" role="button" aria-expanded="false" aria-controls="rabat-fs-content">
+                    Faculté des Sciences – Université Mohammed V de Rabat
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h3>
+                <div class="faculty-content" id="rabat-fs-content" role="region" aria-labelledby="rabat-fs-header" hidden>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Intitulé du Master</th>
+                                    <th>Informations</th>
+                                    <th>Date d'ouverture</th>
+                                    <th>Date de clôture</th>
+                                    <th>Lien d'inscription</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Biologie des Pathologies Humaines « BioPatH »</strong></td>
+                                    <td data-label="Informations">Formation axée sur la cancérologie et aspects liés aux pathologies humaines.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Génomique et Bioinformatique</strong></td>
+                                    <td data-label="Informations">Étude des microorganismes et applications industrielles.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Biodiversité, Environnement et Développement Durable (BIOENV2D)</strong></td>
+                                    <td data-label="Informations">Étude des microorganismes et applications industrielles.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Sciences et Technologie Agroalimentaire</strong> (ouverte en Temps Aménagé)</td>
+                                    <td data-label="Informations">Étude des microorganismes et applications industrielles.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+            <article class="faculty-entry">
+                <h3 class="faculty-header" id="casablanca-bensik-header" tabindex="0" role="button" aria-expanded="false" aria-controls="casablanca-bensik-content">
+                    Faculté des Sciences Ben M’Sik – Université Hassan II de Casablanca
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h3>
+                <div class="faculty-content" id="casablanca-bensik-content" role="region" aria-labelledby="casablanca-bensik-header" hidden>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Intitulé du Master</th>
+                                    <th>Informations</th>
+                                    <th>Date d'ouverture</th>
+                                    <th>Date de clôture</th>
+                                    <th>Lien d'inscription</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Gestion de l’Environnement et Développement Durable</strong></td>
+                                    <td data-label="Informations">Ce master forme des experts en évaluation des impacts environnementaux, gestion durable des ressources et conduite de projets de développement durable.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Master International Sciences de la Santé</strong></td>
+                                    <td data-label="Informations">Programme axé sur la santé publique, la biologie médicale, la recherche clinique et les approches globales de la prevention des maladies.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Biologie et Santé</strong></td>
+                                    <td data-label="Informations">Formation orientée vers la physiopathologie, la microbiologie médicale, l’immunologie et la biologie moléculaire en lien avec les maladies humaines.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Biotechnologie et Démarche Qualité</strong></td>
+                                    <td data-label="Informations">Ce master propose une formation en biotechnologie appliquée à l’agroalimentaire, à la pharmacie, et aux bioprocédés avec un accent sur la qualité et la réglementation.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Contrôle Qualité dans les Industries Pharmaceutique, Alimentaire et Cosmétique</strong></td>
+                                    <td data-label="Informations">Spécialisé dans les normes, les techniques d’analyse et les audits qualité dans les secteurs pharmaceutique, alimentaire et cosmétique.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <article class="faculty-entry">
+                <h3 class="faculty-header" id="casablanca-ainchock-header" tabindex="0" role="button" aria-expanded="false" aria-controls="casablanca-ainchock-content">
+                    Faculté des Sciences Aïn Chock – Université Hassan II de Casablanca
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h3>
+                <div class="faculty-content" id="casablanca-ainchock-content" role="region" aria-labelledby="casablanca-ainchock-header" hidden>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Intitulé du Master</th>
+                                    <th>Informations</th>
+                                    <th>Date d'ouverture</th>
+                                    <th>Date de clôture</th>
+                                    <th>Lien d'inscription</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Sciences Biomédicales et Qualité (SBQ)</strong></td>
+                                    <td data-label="Informations">Ce master forme des spécialistes en analyses biomédicales et en assurance qualité dans les laboratoires de santé, combinant biologie, normes qualité et réglementation.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Sciences de la Santé et BioTechnologies (SSB)</strong></td>
+                                    <td data-label="Informations">Ce programme couvre les biotechnologies appliquées à la santé humaine, notamment la thérapie génique, la pharmacologie et les technologies biomédicales avancées.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Environnement Marin et Halieutique (EMH)</strong></td>
+                                    <td data-label="Informations">Ce master forme des experts dans la gestion durable des ressources marines, l’aquaculture, l’océanographie, et la conservation de la biodiversité marine.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <article class="faculty-entry">
+                <h3 class="faculty-header" id="fes-dharmahraz-header" tabindex="0" role="button" aria-expanded="false" aria-controls="fes-dharmahraz-content">
+                    Faculté des Sciences Dhar El Mahraz – Université Sidi Mohamed Ben Abdellah-Fes
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h3>
+                <div class="faculty-content" id="fes-dharmahraz-content" role="region" aria-labelledby="fes-dharmahraz-header" hidden>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Intitulé du Master</th>
+                                    <th>Informations</th>
+                                    <th>Date d'ouverture</th>
+                                    <th>Date de clôture</th>
+                                    <th>Lien d'inscription</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Biotechnologie, Écologie et Valorisation des Phytoressources</strong></td>
+                                    <td data-label="Informations">Ce master explore les biotechnologies végétales, l’écologie appliquée et la valorisation des plantes médicinales et aromatiques pour des usages pharmaceutiques, cosmétiques et agroalimentaires.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Biotechnologie Alimentaire et Management de la Qualité</strong></td>
+                                    <td data-label="Informations">Formation axée sur les procédés biotechnologiques dans l’industrie agroalimentaire, la sécurité sanitaire des aliments et les normes de qualité (HACCP, ISO, IFS...).</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <article class="faculty-entry">
+                <h3 class="faculty-header" id="marrakech-semlalia-header" tabindex="0" role="button" aria-expanded="false" aria-controls="marrakech-semlalia-content">
+                    Faculté des Sciences Semlalia – Université Cadi Ayyad-Marrakech
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h3>
+                <div class="faculty-content" id="marrakech-semlalia-content" role="region" aria-labelledby="marrakech-semlalia-header" hidden>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Intitulé du Master</th>
+                                    <th>Informations</th>
+                                    <th>Date d'ouverture</th>
+                                    <th>Date de clôture</th>
+                                    <th>Lien d'inscription</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Ingénierie des Produits Alimentaires et Cosmétiques (IPAC)</strong></td>
+                                    <td data-label="Informations">Ce master forme des experts spécialisés dans la formulation, le développement et le contrôle qualité des produits alimentaires et cosmétiques, avec une approche axée sur l’innovation et la réglementation.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Ingénierie de Traitement et Valorisation des Déchets Liquides et Solides</strong> (INGEVAD)</td>
+                                    <td data-label="Informations">Ce master vise à former des experts dans les technologies de traitement des déchets, la gestion durable des eaux usées et la valorisation des sous-produits dans une optique d’économie circulaire.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <article class="faculty-entry">
+                <h3 class="faculty-header" id="agadir-ibnzohr-header" tabindex="0" role="button" aria-expanded="false" aria-controls="agadir-ibnzohr-content">
+                    Faculté des Sciences – Université Ibn Zohr d’Agadir
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h3>
+                <div class="faculty-content" id="agadir-ibnzohr-content" role="region" aria-labelledby="agadir-ibnzohr-header" hidden>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Intitulé du Master</th>
+                                    <th>Informations</th>
+                                    <th>Date d'ouverture</th>
+                                    <th>Date de clôture</th>
+                                    <th>Lien d'inscription</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Biodiversité & Environnement (MBE)</strong></td>
+                                    <td data-label="Informations">Ce master met l’accent sur l’étude de la biodiversité, la conservation des écosystèmes, et l’évaluation des impacts environnementaux dans une perspective de développement durable.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Biodiversité, Biotechnologies et Développement Durable</strong></td>
+                                    <td data-label="Informations">Ce programme forme des spécialistes capables de valoriser la biodiversité à travers les biotechnologies vertes, avec une approche intégrée de durabilité et d’économie verte.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans la nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Biologie Fondamentale</strong></td>
+                                    <td data-label="Informations">Ce master explore les mécanismes fondamentaux du vivant à travers la génétique, la biologie cellulaire et moléculaire, pour préparer à la recherche ou à l’enseignement supérieur.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Sciences Biologiques des Maladies Transmissibles (MSc. BIOMAT)</strong></td>
+                                    <td data-label="Informations">Une formation spécialisée sur les maladies infectieuses, la microbiologie médicale, les pathogènes émergents et les stratégies de lutte biologiques et thérapeutiques.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <article class="faculty-entry">
+                <h3 class="faculty-header" id="aitmelloule-ibnzohr-applied-header" tabindex="0" role="button" aria-expanded="false" aria-controls="aitmelloule-ibnzohr-applied-content">
+                    Faculté des Sciences Appliquées – Université Ibn Zohr Ait Melloul
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h3>
+                <div class="faculty-content" id="aitmelloule-ibnzohr-applied-content" role="region" aria-labelledby="aitmelloule-ibnzohr-applied-header" hidden>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Intitulé du Master</th>
+                                    <th>Informations</th>
+                                    <th>Date d'ouverture</th>
+                                    <th>Date de clôture</th>
+                                    <th>Lien d'inscription</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Biotechnologies Appliquées à l’Agroalimentaire et Produits de Terroir</strong></td>
+                                    <td data-label="Informations">Ce master forme des experts en biotechnologies appliquées à la transformation, la valorisation et la certification des produits agroalimentaires et du terroir, avec une approche orientée innovation et qualité.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <article class="faculty-entry">
+                <h3 class="faculty-header" id="tetouan-essaadi-header" tabindex="0" role="button" aria-expanded="false" aria-controls="tetouan-essaadi-content">
+                    Faculté des Sciences – Université Abdelmalek Essaâdi-Tétouan
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h3>
+                <div class="faculty-content" id="tetouan-essaadi-content" role="region" aria-labelledby="tetouan-essaadi-header" hidden>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Intitulé du Master</th>
+                                    <th>Informations</th>
+                                    <th>Date d'ouverture</th>
+                                    <th>Date de clôture</th>
+                                    <th>Lien d'inscription</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Biotechnologie et Sciences de la Santé (B2S)</strong></td>
+                                    <td data-label="Informations">Ce master propose une formation pluridisciplinaire à l’interface entre biotechnologie et santé, couvrant la biologie moléculaire, la pharmacologie, et les thérapies innovantes.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Ingénierie en Biotechnologie et Gestion de l’Environnement (IBGE)</strong></td>
+                                    <td data-label="Informations">Ce programme forme des ingénieurs capables d’appliquer les biotechnologies à la gestion durable des ressources, au traitement des pollutions, et à la transition écologique.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Valorisation des Ressources Naturelles et Biologie Appliquée (VRNBA)</strong></td>
+                                    <td data-label="Informations">Ce master met l’accent sur la valorisation des ressources biologiques locales à des fins pharmaceutiques, alimentaires et industrielles, en intégrant écologie, chimie verte et bioprocédés.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <article class="faculty-entry">
+                <h3 class="faculty-header" id="kenitra-ibntofail-header" tabindex="0" role="button" aria-expanded="false" aria-controls="kenitra-ibntofail-content">
+                    Faculté des Sciences – Université Ibn Tofaïl-Kénitra
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h3>
+                <div class="faculty-content" id="kenitra-ibntofail-content" role="region" aria-labelledby="kenitra-ibntofail-header" hidden>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Intitulé du Master</th>
+                                    <th>Informations</th>
+                                    <th>Date d'ouverture</th>
+                                    <th>Date de clôture</th>
+                                    <th>Lien d'inscription</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Amélioration et Valorisation des Ressources Végétales</strong></td>
+                                    <td data-label="Informations">Ce master traite de la sélection génétique, de la multiplication in vitro et de la valorisation des plantes à usage alimentaire, médicinal ou industriel dans un contexte de développement durable.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Biologie de l’Environnement</strong></td>
+                                    <td data-label="Informations">Formation axée sur l’écologie, la gestion des écosystèmes, la bioindication et la surveillance des milieux naturels face aux pressions anthropiques et climatiques.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Biologie Intégrative, Physiopathologie et Santé</strong></td>
+                                    <td data-label="Informations">Ce programme explore les interactions complexes entre systèmes biologiques, maladies chroniques et thérapies, intégrant biologie cellulaire, immunologie et physiologie.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Microorganismes et Protection des Plantes</strong></td>
+                                    <td data-label="Informations">Ce master forme des spécialistes des interactions plantes-microorganismes, de la lutte biologique contre les maladies végétales, et des biointrants agricoles durables.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Sécurité Sanitaire des Aliments en Région Méditerranéenne</strong></td>
+                                    <td data-label="Informations">Ce master vise à maîtriser les normes de qualité, les risques alimentaires et les systèmes de gestion de la sécurité sanitaire dans le contexte des filières agroalimentaires méditerranéennes.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Master spécialisé Neurocognition Humaine</strong></td>
+                                    <td data-label="Informations">Ce master interdisciplinaire porte sur le fonctionnement du cerveau, les troubles cognitifs et les neurosciences appliquées, en lien avec la psychologie, la biologie et la santé mentale.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Master spécialisé Santé de la Population et Nutrition Humaine</strong></td>
+                                    <td data-label="Informations">Formation axée sur la nutrition, la prévention sanitaire, l’épidémiologie et la santé publique, en particulier dans les contextes de transitions nutritionnelles.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Master spécialisé Management de la Qualité</strong></td>
+                                    <td data-label="Informations">Ce programme forme des cadres en systèmes qualité (ISO, HACCP, IFS...), gestion des risques, audits internes et certification dans divers secteurs industriels ou agroalimentaires.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Ingénierie de la Valorisation des Ressources Naturelles et Management de la Qualité</strong></td>
+                                    <td data-label="Informations">Une double compétence en valorisation des ressources naturelles (végétales, marines, minières...) et en management qualité, adaptée aux industries durables et à l’économie verte.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Master spécialisé Éco-Ingénierie des Zones Humides</strong></td>
+                                    <td data-label="Informations">Ce master forme des experts capables de restaurer, gérer et valoriser les zones humides, en lien avec la biodiversité, la qualité de l’eau et les services écosystémiques.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <article class="faculty-entry">
+                <h3 class="faculty-header" id="el-jadida-doukkali-header" tabindex="0" role="button" aria-expanded="false" aria-controls="el-jadida-doukkali-content">
+                    Faculté des Sciences – Université Chouaib Doukkali-El Jadida
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h3>
+                <div class="faculty-content" id="el-jadida-doukkali-content" role="region" aria-labelledby="el-jadida-doukkali-header" hidden>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Intitulé du Master</th>
+                                    <th>Informations</th>
+                                    <th>Date d'ouverture</th>
+                                    <th>Date de clôture</th>
+                                    <th>Lien d'inscription</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Sciences Biologiques et Environnementales (SBE)</strong></td>
+                                    <td data-label="Informations">Ce master propose une formation approfondie en biologie appliquée à l’environnement, combinant écologie, microbiologie, biologie végétale et évaluation des écosystèmes naturels.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Biotechnologie Appliquée à la Production Végétale et Industrie Agroalimentaire</strong></td>
+                                    <td data-label="Informations">Spécialisé en biotechnologies végétales, ce master couvre les techniques de culture in vitro, génomique, amélioration génétique et développement durable des cultures.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Sciences Biomédicales</strong></td>
+                                    <td data-label="Informations">Ce master offre une formation avancée en biologie médicale, incluant la physiopathologie, la génétique, l'immunologie et les approches diagnostiques en santé humaine.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <article class="faculty-entry">
+                <h3 class="faculty-header" id="settat-hassan1-fst-header" tabindex="0" role="button" aria-expanded="false" aria-controls="settat-hassan1-fst-content">
+                    Faculté des Sciences et Techniques de Settat – Université Hassan I
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h3>
+                <div class="faculty-content" id="settat-hassan1-fst-content" role="region" aria-labelledby="settat-hassan1-fst-header" hidden>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Intitulé du Master</th>
+                                    <th>Informations</th>
+                                    <th>Date d'ouverture</th>
+                                    <th>Date de clôture</th>
+                                    <th>Lien d'inscription</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Génie des Systèmes de Management Qualité, Hygiène, Sécurité et Environnement </strong>(GSMQHSE)</td>
+                                    <td data-label="Informations">Ce master forme des experts capables de concevoir, mettre en œuvre et piloter des systèmes de management QHSE intégrés selon les normes ISO 9001, ISO 14001, ISO 45001 et HACCP.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Sécurité Industrielle en Qualité, Hygiène, Sécurité et Environnement</strong></td>
+                                    <td data-label="Informations">Spécialisé dans l’évaluation des risques professionnels, ce master vise à développer des compétences en prévention, gestion de crise, conformité réglementaire et culture sécurité dans les milieux industriels.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Gestion et Contrôle de Qualité en Agroalimentaire (MGCQA)</strong></td>
+                                    <td data-label="Informations">Ce master forme des professionnels du contrôle qualité, de l’analyse des risques sanitaires, et de la gestion des systèmes qualité dans les filières de production et transformation alimentaires.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Génie des Procédés et Contrôle Qualité des Produits Pharmaceutiques et Cosmétiques</strong></td>
+                                    <td data-label="Informations">Ce programme forme des cadres compétents dans la formulation, la fabrication, le contrôle qualité et la réglementation des produits pharmaceutiques et cosmétiques, avec une approche intégrée des procédés industriels.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <article class="faculty-entry">
+                <h3 class="faculty-header" id="tanger-essaadi-fst-header" tabindex="0" role="button" aria-expanded="false" aria-controls="tanger-essaadi-fst-content">
+                    Faculté des Sciences et Techniques – Université Abdelmalek Essaâdi-Tanger
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h3>
+                <div class="faculty-content" id="tanger-essaadi-fst-content" role="region" aria-labelledby="tanger-essaadi-fst-header" hidden>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Intitulé du Master</th>
+                                    <th>Informations</th>
+                                    <th>Date d'ouverture</th>
+                                    <th>Date de clôture</th>
+                                    <th>Lien d'inscription</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Bases Cellulaires et Moléculaires en Biotechnologie</strong></td>
+                                    <td data-label="Informations">Ce master propose une formation avancée en biologie cellulaire, génétique moléculaire, et ingénierie des biomolécules, avec des applications en santé, agriculture et biotechnologies industrielles.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Environnement, Aquaculture et Développement Durable</strong></td>
+                                    <td data-label="Informations">Ce master forme des spécialistes de l’aquaculture durable, la gestion intégrée des ressources marines, et la préservation de la biodiversité aquatique dans un contexte de développement durable.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Ingénierie Environnementale, Changement Climatique et Développement Durable</strong></td>
+                                    <td data-label="Informations">Ce master aborde les enjeux du changement climatique et forme des ingénieurs capables d’élaborer des solutions durables pour la gestion des ressources, la transition énergétique, et l’adaptation climatique.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <article class="faculty-entry">
+                <h3 class="faculty-header" id="errachidia-moulayismail-fst-header" tabindex="0" role="button" aria-expanded="false" aria-controls="errachidia-moulayismail-fst-content">
+                    Faculté des Sciences et Techniques – Université Moulay Ismail-Errachidia
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h3>
+                <div class="faculty-content" id="errachidia-moulayismail-fst-content" role="region" aria-labelledby="errachidia-moulayismail-fst-header" hidden>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Intitulé du Master</th>
+                                    <th>Informations</th>
+                                    <th>Date d'ouverture</th>
+                                    <th>Date de clôture</th>
+                                    <th>Lien d'inscription</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <article class="faculty-entry">
+                <h3 class="faculty-header" id="benimellal-polydisciplinaire-header" tabindex="0" role="button" aria-expanded="false" aria-controls="benimellal-polydisciplinaire-content">
+                    Faculté Polydisciplinaire-Béni Mellal
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h3>
+                <div class="faculty-content" id="benimellal-polydisciplinaire-content" role="region" aria-labelledby="benimellal-polydisciplinaire-header" hidden>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Intitulé du Master</th>
+                                    <th>Informations</th>
+                                    <th>Date d'ouverture</th>
+                                    <th>Date de clôture</th>
+                                    <th>Lien d'inscription</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Biomolécules et Santé</strong></td>
+                                    <td data-label="Informations">Ce master forme des spécialistes en biochimie, biologie moléculaire et pharmacologie, capables d’analyser, concevoir et valoriser des biomolécules à usage thérapeutique ou diagnostique.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <article class="faculty-entry">
+                <h3 class="faculty-header" id="taroudant-polydisciplinaire-header" tabindex="0" role="button" aria-expanded="false" aria-controls="taroudant-polydisciplinaire-content">
+                    Faculté Polydisciplinaire de Taroudant
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h3>
+                <div class="faculty-content" id="taroudant-polydisciplinaire-content" role="region" aria-labelledby="taroudant-polydisciplinaire-header" hidden>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Intitulé du Master</th>
+                                    <th>Informations</th>
+                                    <th>Date d'ouverture</th>
+                                    <th>Date de clôture</th>
+                                    <th>Lien d'inscription</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Méthodes d’Analyse et Contrôle de la Qualité</strong></td>
+                                    <td data-label="Informations">Ce master forme des spécialistes dans les techniques analytiques modernes, le contrôle qualité, et la validation des méthodes d’analyse pour les secteurs agroalimentaire, pharmaceutique et environnemental.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <article class="faculty-entry">
+                <h3 class="faculty-header" id="khouribga-polydisciplinaire-header" tabindex="0" role="button" aria-expanded="false" aria-controls="khouribga-polydisciplinaire-content">
+                    Faculté Polydisciplinaire-Khouribga
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </h3>
+                <div class="faculty-content" id="khouribga-polydisciplinaire-content" role="region" aria-labelledby="khouribga-polydisciplinaire-header" hidden>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Intitulé du Master</th>
+                                    <th>Informations</th>
+                                    <th>Date d'ouverture</th>
+                                    <th>Date de clôture</th>
+                                    <th>Lien d'inscription</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Intitulé du Master"><strong>Écotoxicologie et Biotechnologie Appliquée</strong></td>
+                                    <td data-label="Informations">Ce master combine les approches de l’écotoxicologie et des biotechnologies pour évaluer les impacts des polluants sur les écosystèmes et développer des solutions de dépollution biologique et de biosurveillance.</td>
+                                    <td data-label="Date d'ouverture">------</td>
+                                    <td data-label="Date de clôture">------</td>
+                                    <td data-label="Lien d'inscription"><a href="#" target="_blank" rel="noopener noreferrer">S'inscrire <span class="sr-only">(ouvre dans une nouvelle fenêtre)</span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content-wrapper">
+            <div class="footer-section footer-about">
+                <h3 class="footer-heading">BioATP</h3>
+                <p>Plateforme éducative dédiée aux étudiants en biologie et sciences naturelles au Maroc.</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Notre page Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Notre groupe WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Notre profil Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Notre chaîne YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <nav class="footer-section footer-links" aria-label="Liens rapides du pied de page">
+                <h3 class="footer-heading">Liens rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="licence.html">Licence</a></li>
+                    <li><a href="master.html">Master</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="footer-section footer-newsletter">
+                <h3 class="footer-heading">Newsletter</h3>
+                <p>Abonnez-vous pour recevoir les dernières mises à jour et les nouveaux cours.</p>
+                <form class="newsletter-form">
+                    <label for="newsletter-email" class="sr-only">Votre adresse email</label>
+                    <input type="email" id="newsletter-email" placeholder="Votre email" required aria-required="true">
+                    <button type="submit" aria-label="S'abonner à la newsletter"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 BioATP - Tous droits réservés.</p>
+            <div class="footer-legal-links">
+                <a href="#">Confidentialité</a>
+                <a href="#">Conditions d'utilisation</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" aria-label="Retour en haut de la page" title="Retour en haut de la page">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+</body>
+</html>

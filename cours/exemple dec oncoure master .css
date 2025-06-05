@@ -1,0 +1,287 @@
+/* Variables CSS pour une maintenance facile */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #3498db;
+      --accent-color: #1abc9c;
+      --light-color: #ecf0f1;
+      --dark-color: #34495e;
+      --text-color: #2c3e50;
+      --text-light: #7f8c8d;
+      --border-radius: 10px;
+      --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    /* Réinitialisation et styles de base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: #f8f9fa;
+      background-image: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* En-tête */
+    header {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+      color: white;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      box-shadow: var(--box-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+      pointer-events: none;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Contenu principal */
+    main {
+      flex: 1;
+      width: 90%;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Sections université */
+    .universite {
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      margin-bottom: 2.5rem;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .universite:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .universite h2 {
+      background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+      color: white;
+      padding: 1.2rem 1.5rem;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .universite h2::before {
+      content: "🔬";
+      margin-right: 12px;
+      font-size: 1.8rem;
+    }
+
+    /* Masters */
+    .master {
+      padding: 1.5rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .master:last-child {
+      border-bottom: none;
+    }
+
+    .master h3 {
+      color: var(--primary-color);
+      font-size: 1.3rem;
+      margin-bottom: 1.2rem;
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .master h3::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      background-color: var(--accent-color);
+      border-radius: 50%;
+    }
+
+    /* Documents */
+    .documents {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .documents a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.8rem 1.5rem;
+      background: var(--light-color);
+      border-radius: 50px;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: var(--transition);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .documents a:hover {
+      background: var(--secondary-color);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    }
+
+    .documents a::before {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+
+    /* Pied de page */
+    footer {
+      background: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: auto;
+      font-size: 0.9rem;
+    }
+
+    /* Animation pour les liens */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .documents a:hover {
+      animation: pulse 0.5s ease;
+    }
+
+    /* Design pour le futur - Mode sombre */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary-color: #1a1a2e;
+        --secondary-color: #0f3460;
+        --accent-color: #4ecca3;
+        --light-color: #16213e;
+        --dark-color: #0d1930;
+        --text-color: #e6e6e6;
+      }
+      
+      body {
+        background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
+      }
+      
+      .universite {
+        background: var(--dark-color);
+      }
+      
+      .documents a {
+        background: var(--light-color);
+        color: var(--text-color);
+      }
+    }
+
+    /* Media Queries pour la responsivité */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      header p {
+        font-size: 1rem;
+      }
+      
+      .universite h2 {
+        font-size: 1.3rem;
+        padding: 1rem;
+      }
+      
+      .master {
+        padding: 1.2rem 1rem;
+      }
+      
+      .master h3 {
+        font-size: 1.1rem;
+      }
+      
+      .documents {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      
+      .documents a {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 1.8rem 1rem;
+      }
+      
+      header h1 {
+        font-size: 1.5rem;
+      }
+      
+      .universite h2 {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* Effets modernes */
+    .universite {
+      position: relative;
+    }
+
+    .universite::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+
+    .universite:hover::after {
+      transform: scaleX(1);
+    }
+  

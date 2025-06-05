@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Découverte de Bactéries Extrêmophiles | Science Maroc</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .article-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .article-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .tag {
+            background-color: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        /* Article Content */
+        .article-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .main-content {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            align-self: start;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-top: 40px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .highlight {
+            background-color: #f8f4e5;
+            border-left: 4px solid var(--secondary);
+            padding: 20px;
+            margin: 30px 0;
+            font-style: italic;
+        }
+        
+        /* Images */
+        .article-image {
+            width: 100%;
+            border-radius: 8px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Footer */
+        .article-footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .back-link {
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .article-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .article-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="article-header">
+        <div class="container">
+            <div class="meta">
+                <span class="tag">Microbiologie</span>
+                <time datetime="2024-03-12"><i class="fas fa-calendar-alt"></i> 12 Mars 2024</time>
+            </div>
+            <h1>Découverte de Bactéries Extrêmophiles dans l'Atlas Marocain</h1>
+            <p>Une avancée majeure en biologie des environnements extrêmes</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="article-content">
+            <article class="main-content">
+                <h2>Une découverte révolutionnaire</h2>
+                <p>Une équipe de chercheurs marocains a identifié une nouvelle espèce de bactéries extrêmophiles dans les sources hydrothermales du Haut Atlas. Ces micro-organismes remarquables survivent à des températures avoisinant les 80°C et dans des conditions de forte acidité.</p>
+                
+                <img src="https://images.unsplash.com/photo-1516054575922-f0b8eeadec1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sources chaudes de l'Atlas" class="article-image">
+                
+                <h2>Caractéristiques uniques</h2>
+                <p>Les analyses préliminaires révèlent que ces bactéries possèdent des mécanismes métaboliques jamais observés auparavant :</p>
+                <ul>
+                    <li>Résistance à des pH aussi bas que 2.5</li>
+                    <li>Capacité à métaboliser des composés sulfuriques</li>
+                    <li>Production d'enzymes thermostables</li>
+                    <li>Mécanismes de réparation ADN ultra-rapides</li>
+                </ul>
+                
+                <div class="highlight">
+                    "Cette découverte ouvre de nouvelles perspectives pour la biotechnologie, notamment dans le développement d'enzymes industrielles et de procédés de biodégradation en conditions extrêmes" - Pr. Amina Belkadi, chef de l'équipe de recherche.
+                </div>
+                
+                <h2>Applications potentielles</h2>
+                <p>Les chercheurs explorent plusieurs applications prometteuses :</p>
+                <ol>
+                    <li>Développement de détergents industriels efficaces à haute température</li>
+                    <li>Traitement des eaux acides issues des mines</li>
+                    <li>Production de biocarburants à partir de substrats complexes</li>
+                    <li>Nouvelles approches en médecine régénérative</li>
+                </ol>
+                
+                <h2>Prochaines étapes</h2>
+                <p>L'équipe prépare une publication dans la revue <em>Nature Microbiology</em> et entame des collaborations internationales pour séquencer le génome complet de ces bactéries. Des essais en bioremédiation sont prévus pour 2025.</p>
+            </article>
+            
+            <aside class="sidebar">
+                <h3>L'équipe de recherche</h3>
+                <ul>
+                    <li>Pr. Amina Belkadi (Microbiologie)</li>
+                    <li>Dr. Youssef El Mansouri (Génétique)</li>
+                    <li>Dr. Leila Chraibi (Biochimie)</li>
+                    <li>5 chercheurs postdoctoraux</li>
+                </ul>
+                
+                <h3>Financement</h3>
+                <p>Projet soutenu par :</p>
+                <ul>
+                    <li>CNRST Maroc</li>
+                    <li>Université Cadi Ayyad</li>
+                    <li>Programme Horizon Europe</li>
+                </ul>
+                
+                <h3>Pour en savoir plus</h3>
+                <p><a href="#"><i class="fas fa-file-pdf"></i> Article préliminaire (PDF)</a></p>
+                <p><a href="#"><i class="fas fa-video"></i> Reportage vidéo</a></p>
+            </aside>
+        </div>
+    </div>
+    
+    <footer class="article-footer">
+        <div class="container">
+            <p>© 2024 Institut de Recherche Scientifique - Maroc</p>
+            <a href="#" class="back-link">
+                <i class="fas fa-arrow-left"></i> Retour aux actualités scientifiques
+            </a>
+        </div>
+    </footer>
+</body>
+</html>

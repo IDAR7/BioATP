@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouveau Traitement contre le Cancer | Innovations Médicales Maroc</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --medical: #e74c3c;
+            --light: #f5f7fa;
+            --dark: #1a252f;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Médical */
+        .medical-header {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), 
+                        url('https://images.unsplash.com/photo-1575503802870-45de6a6217c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .medical-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .medical-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .medical-tag {
+            background-color: var(--medical);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Contenu Médical */
+        .medical-content {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        
+        .main-medical {
+            background: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        
+        .medical-sidebar {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            align-self: start;
+            position: sticky;
+            top: 20px;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-top: 45px;
+            font-family: 'Montserrat', sans-serif;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light);
+        }
+        
+        h3 {
+            color: var(--medical);
+            margin-top: 30px;
+        }
+        
+        .medical-highlight {
+            background-color: #fef6f6;
+            border-left: 5px solid var(--medical);
+            padding: 25px;
+            margin: 35px 0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Infographie Médicale */
+        .infographic {
+            display: flex;
+            background: #f0f8ff;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 40px 0;
+            align-items: center;
+        }
+        
+        .infographic-icon {
+            font-size: 3rem;
+            color: var(--medical);
+            margin-right: 25px;
+            flex-shrink: 0;
+        }
+        
+        /* Images */
+        .medical-image {
+            width: 100%;
+            border-radius: 8px;
+            margin: 35px 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+        }
+        
+        /* Footer Médical */
+        .medical-footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            background-color: var(--medical);
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 992px) {
+            .medical-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .medical-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .medical-sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="medical-header">
+        <div class="container">
+            <div class="medical-meta">
+                <span class="medical-tag">Innovation Médicale</span>
+                <time datetime="2024-03-15"><i class="fas fa-calendar-alt"></i> 15 Mars 2024</time>
+            </div>
+            <h1>Nouveau Traitement contre le Cancer par Immunothérapie</h1>
+            <p>Une thérapie ciblée développée par des chercheurs marocains montre des résultats prometteurs</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="medical-content">
+            <article class="main-medical">
+                <h2>Une percée thérapeutique</h2>
+                <p>L'équipe du Dr. Karim El Amrani de l'Université Mohammed VI des Sciences de la Santé a mis au point un protocole innovant combinant immunothérapie et nanotechnologies pour cibler spécifiquement les cellules cancéreuses tout en préservant les tissus sains.</p>
+                
+                <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Recherche médicale en laboratoire" class="medical-image">
+                
+                <div class="infographic">
+                    <div class="infographic-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div>
+                        <h3>Résultats Cliniques</h3>
+                        <p>Essais phase II : 68% de réduction tumorale vs 42% avec traitement standard. Effets secondaires réduits de 60%.</p>
+                    </div>
+                </div>
+                
+                <h2>Mécanisme d'action</h2>
+                <p>Cette approche révolutionnaire repose sur trois piliers :</p>
+                <ol>
+                    <li><strong>Nanovecteurs intelligents</strong> : Transport sélectif des principes actifs</li>
+                    <li><strong>Double activation immunitaire</strong> : Stimulation des lymphocytes T et NK</li>
+                    <li><strong>Marqueurs tumoraux spécifiques</strong> : Ciblage moléculaire précis</li>
+                </ol>
+                
+                <div class="medical-highlight">
+                    "Notre technologie permet de transformer le microenvironnement tumoral pour le rendre plus vulnérable au système immunitaire du patient, tout en réduisant considérablement la toxicité générale." - Dr. Karim El Amrani
+                </div>
+                
+                <h2>Applications</h2>
+                <p>Ce traitement montre une efficacité particulière contre :</p>
+                <ul>
+                    <li>Cancer du sein triple négatif</li>
+                    <li>Mélanome métastatique</li>
+                    <li>Carcinome pulmonaire non à petites cellules</li>
+                </ul>
+                
+                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Microscope électronique" class="medical-image">
+                
+                <h2>Prochaines Étapes</h2>
+                <p>Le protocole entrera en phase III d'essais cliniques en 2025 avec :</p>
+                <table style="width:100%; border-collapse: collapse; margin: 25px 0;">
+                    <tr style="background-color: #f8f9fa;">
+                        <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd;">Phase</th>
+                        <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd;">Période</th>
+                        <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd;">Patients</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; border-bottom: 1px solid #ddd;">III-A</td>
+                        <td style="padding: 12px; border-bottom: 1px solid #ddd;">Q2 2025</td>
+                        <td style="padding: 12px; border-bottom: 1px solid #ddd;">300 (Maroc)</td>
+                    </tr>
+                    <tr style="background-color: #f8f9fa;">
+                        <td style="padding: 12px; border-bottom: 1px solid #ddd;">III-B</td>
+                        <td style="padding: 12px; border-bottom: 1px solid #ddd;">Q4 2025</td>
+                        <td style="padding: 12px; border-bottom: 1px solid #ddd;">1200 (International)</td>
+                    </tr>
+                </table>
+            </article>
+            
+            <aside class="medical-sidebar">
+                <h3>Équipe de Recherche</h3>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li style="padding: 8px 0; border-bottom: 1px dashed #eee;">
+                        <strong>Dr. Karim El Amrani</strong><br>
+                        <small>Onco-Immunologie</small>
+                    </li>
+                    <li style="padding: 8px 0; border-bottom: 1px dashed #eee;">
+                        <strong>Pr. Leila Benbrahim</strong><br>
+                        <small>Nanomédecine</small>
+                    </li>
+                    <li style="padding: 8px 0; border-bottom: 1px dashed #eee;">
+                        <strong>Dr. Youssef Khadiri</strong><br>
+                        <small>Essais Cliniques</small>
+                    </li>
+                </ul>
+                
+                <h3 style="margin-top: 30px;">Partenaires</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0;">
+                    <img src="https://via.placeholder.com/80x40?text=UM6SS" alt="UM6SS" style="height: 40px;">
+                    <img src="https://via.placeholder.com/80x40?text=CNRST" alt="CNRST" style="height: 40px;">
+                    <img src="https://via.placeholder.com/80x40?text=BIOPHARMA" alt="Bioparma" style="height: 40px;">
+                </div>
+                
+                <h3 style="margin-top: 30px;">Documents</h3>
+                <p><a href="#" style="color: var(--medical); text-decoration: none;"><i class="fas fa-file-pdf"></i> Protocole complet (PDF)</a></p>
+                <p><a href="#" style="color: var(--medical); text-decoration: none;"><i class="fas fa-chart-line"></i> Données cliniques</a></p>
+                
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 30px;">
+                    <h3>Contact Presse</h3>
+                    <p><i class="fas fa-envelope"></i> contact@um6ss.ma</p>
+                    <p><i class="fas fa-phone"></i> +212 5 22 00 00 00</p>
+                </div>
+            </aside>
+        </div>
+    </div>
+    
+    <footer class="medical-footer">
+        <div class="container">
+            <p>© 2024 Université Mohammed VI des Sciences de la Santé - Tous droits réservés</p>
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Retour aux actualités médicales
+            </a>
+        </div>
+    </footer>
+</body>
+</html>

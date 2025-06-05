@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concours Master Biologie - BioATP</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Variables CSS pour une maintenance facile */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #3498db;
+      --accent-color: #1abc9c;
+      --light-color: #ecf0f1;
+      --dark-color: #34495e;
+      --text-color: #2c3e50;
+      --text-light: #7f8c8d;
+      --border-radius: 12px;
+      --box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+      --header-gradient: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
+    }
+
+    /* Réinitialisation et styles de base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: #f8f9fa;
+      background-image: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* En-tête */
+    header {
+      background: var(--header-gradient);
+      color: white;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      box-shadow: var(--box-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+      pointer-events: none;
+    }
+
+    .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    header h1 i {
+      font-size: 2rem;
+      color: var(--accent-color);
+      background: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* Contenu principal */
+    main {
+      flex: 1;
+      width: 90%;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Sections université */
+    .universite {
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      margin-bottom: 2.5rem;
+      overflow: hidden;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .universite:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .university-header {
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+      color: white;
+      padding: 1.2rem 1.5rem;
+    }
+
+    .university-logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .university-logo i {
+      font-size: 2.5rem;
+      color: var(--secondary-color);
+    }
+
+    .university-info {
+      flex: 1;
+    }
+
+    .university-info h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .university-info .location {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Masters */
+    .master {
+      padding: 1.5rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    .master:last-child {
+      border-bottom: none;
+    }
+
+    .master h3 {
+      color: var(--primary-color);
+      font-size: 1.3rem;
+      margin-bottom: 1.2rem;
+      position: relative;
+      padding-left: 35px;
+      display: flex;
+      align-items: center;
+    }
+
+    .master h3::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 25px;
+      height: 25px;
+      background-color: var(--accent-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    /* Documents */
+    .documents {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .documents a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.8rem 1.5rem;
+      background: var(--light-color);
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: var(--transition);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .documents a:hover {
+      background: var(--secondary-color);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    }
+
+    .documents a i {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+
+    /* Pied de page */
+    footer {
+      background: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: auto;
+      font-size: 0.9rem;
+    }
+
+    footer p {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Animation pour les liens */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .documents a:hover {
+      animation: pulse 0.5s ease;
+    }
+
+    /* Barre de progression colorée */
+    .universite::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+
+    .universite:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* Design pour le futur - Mode sombre */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary-color: #1a1a2e;
+        --secondary-color: #0f3460;
+        --accent-color: #4ecca3;
+        --light-color: #16213e;
+        --dark-color: #0d1930;
+        --text-color: #e6e6e6;
+        --header-gradient: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+      }
+      
+      body {
+        background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
+      }
+      
+      .universite {
+        background: var(--dark-color);
+      }
+      
+      .documents a {
+        background: var(--light-color);
+        color: var(--text-color);
+      }
+
+      .university-logo {
+        background: var(--light-color);
+      }
+    }
+
+    /* Media Queries pour la responsivité */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      header p {
+        font-size: 1rem;
+      }
+      
+      .university-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem 1rem;
+      }
+      
+      .university-logo {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+      
+      .university-info h2 {
+        font-size: 1.3rem;
+      }
+      
+      .master {
+        padding: 1.2rem 1rem;
+      }
+      
+      .master h3 {
+        font-size: 1.1rem;
+      }
+      
+      .documents {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      
+      .documents a {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 1.8rem 1rem;
+      }
+      
+      header h1 {
+        font-size: 1.5rem;
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      header h1 i {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .university-info h2 {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* Section universités supplémentaires */
+    .universities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .add-university {
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      transition: var(--transition);
+      border: 2px dashed #e0e0e0;
+      cursor: pointer;
+    }
+
+    .add-university:hover {
+      transform: scale(1.02);
+      border-color: var(--accent-color);
+    }
+
+    .add-university i {
+      font-size: 3rem;
+      color: var(--accent-color);
+      margin-bottom: 15px;
+    }
+
+    .add-university h3 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>
+        <i class="fas fa-graduation-cap"></i>
+        Exemples de Concours Masters Biologie - BioATP
+      </h1>
+      <p>Sélectionne ton université pour voir les exemples de concours disponibles.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="universite">
+      <div class="university-header">
+        <div class="university-logo">
+          <i class="fas fa-university"></i>
+        </div>
+        <div class="university-info">
+          <h2>Université Cadi Ayyad</h2>
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            Marrakech, Maroc
+          </div>
+        </div>
+      </div>
+
+      <div class="master">
+        <h3>Master : Biodiversité Changement Climatique Et Développement Durable</h3>
+        <div class="documents">
+          <a href="exemple concoure/bd marakeche.pdf" target="_blank">
+            <i class="fas fa-file-pdf"></i> Concours 2022 (PDF)
+          </a>
+          <a href="Biowlogy_s Master EXAMS Collection/Marrakesh/FSSM MASTER BIODIVERSITÉ.pdf" target="_blank">
+            <i class="fas fa-file-pdf"></i> Concours 2023 (PDF)
+          </a>
+      </div>
+    </section>
+ <section class="universite">
+      <div class="university-header">
+        <div class="university-logo">
+          <i class="fas fa-university"></i>
+        </div>
+        <div class="university-info">
+          <h2>Université Abdelmalek Essaadi</h2>
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            Tetoun, Maroc
+          </div>
+        </div>
+      </div>
+
+      <div class="master">
+        <h3>Master : Conservation de la Biodiversité Marine</h3>
+        <div class="documents">
+          <a href="exemple concoure/conservation biodeversite marine.pdf" target="_blank">
+            <i class="fas fa-file-pdf"></i> Concours 2022 (PDF)
+          </a>
+      </div>
+    </section>
+    <section class="universite">
+      <div class="university-header">
+        <div class="university-logo">
+          <i class="fas fa-water"></i>
+        </div>
+        <div class="university-info">
+          <h2>Université Ibn Zohr</h2>
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            Agadir, Maroc
+          </div>
+        </div>
+      </div>
+
+      <div class="master">
+        <h3>Master : Biodeversite, Biotechnologie , Développement Durable (BBDD)</h3>
+        <div class="documents">
+          
+        <a href="exemple concoure/bio agadir.pdf" target="_blank">
+            <i class="fas fa-file-pdf"></i> Concours 2019 (PDF)
+          </a>
+        </div>
+      </div>
+      <div class="master">
+        <h3>Master : Biologie Médicale</h3>
+        <div class="documents">
+          <a href="Biowlogy_s Master EXAMS Collection/Agadir/FMPA BM 2023.pdf" target="_blank">
+            <i class="fas fa-file-pdf"></i> Concours 2023 (PDF)
+          </a>
+          <a href="Biowlogy_s Master EXAMS Collection/Agadir/MASTER FMPA.pdf" target="_blank">
+            <i class="fas fa-file-pdf"></i> Concours 2022 (PDF)
+          </a>
+        </div>
+      </div>
+    </section>
+<section class="universite">
+      <div class="university-header">
+        <div class="university-logo">
+          <i class="fas fa-water"></i>
+        </div>
+        <div class="university-info">
+          <h2>Université Sultan Moulay Slimane </h2>
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            beni Mellal, Maroc
+          </div>
+        </div>
+      </div>
+
+      <div class="master">
+        <h3>Master : Biomlécule et santé </h3>
+        <div class="documents">
+          
+        <a href="exemple concoure/bio mol.pdf" target="_blank">
+            <i class="fas fa-file-pdf"></i> Concours 2021 (PDF)
+          </a>
+        </div>
+      </div>
+      <div class="master">
+        <h3>Master : Techniques d’analyse et contrôle qualité en industries agroalimentaires</h3>
+        <div class="documents">
+          <a href="Biowlogy_s Master EXAMS Collection/Béni Mellal/TACQ IAA/Scanned_20240707-1449.pdf" target="_blank">
+            <i class="fas fa-file-pdf"></i> Concours 2020 (PDF)
+          </a>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="universities-grid">
+      <section class="universite">
+        <div class="university-header">
+          <div class="university-logo">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <div class="university-info">
+            <h2>Université Hassan II</h2>
+            <div class="location">
+              <i class="fas fa-map-marker-alt"></i>
+              Casablanca, Maroc
+            </div>
+          </div>
+        </div>
+
+        <div class="master">
+          <h3>Master : Biotechnologie Végétale</h3>
+          <div class="documents">
+            <a href="#" target="_blank">
+              <i class="fas fa-file-pdf"></i> Concours 2023 (PDF)
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="universite">
+        <div class="university-header">
+          <div class="university-logo">
+            <i class="fas fa-dna"></i>
+          </div>
+          <div class="university-info">
+            <h2>Université Mohammed V</h2>
+            <div class="location">
+              <i class="fas fa-map-marker-alt"></i>
+              Rabat, Maroc
+            </div>
+          </div>
+        </div>
+
+        <div class="master">
+          <h3>Master : Génétique Moléculaire</h3>
+          <div class="documents">
+            <a href="#" target="_blank">
+              <i class="fas fa-file-pdf"></i> Concours 2023 (PDF)
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div class="add-university">
+        <i class="fas fa-plus-circle"></i>
+        <h3>Ajouter une université</h3>
+        <p>Propose une nouvelle université à ajouter à notre base de données</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 BioATP | Plateforme de préparation aux concours de Masters en Biologie | Tous droits réservés</p>
+  </footer>
+</body>
+</html>

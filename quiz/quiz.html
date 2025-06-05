@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz de Biologie | BioATP</title>
+  <link rel="stylesheet" href="quiz.css" />
+  <script defer src="quiz.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="quiz-header">
+    <h1>Quiz de Biologie</h1>
+    <nav>
+      <ul>
+        <li><button onclick="startLevel(1)">Biologie Cellulaire</button></li>
+        <li><button onclick="startLevel(2)">Histologie</button></li>
+        <li><button onclick="startLevel(3)">Biologie Animale</button></li>
+        <li><button onclick="startLevel(4)">Biologie Végétale</button></li>
+        <li><button onclick="startLevel(5)">Faunistique</button></li>
+        <li><button onclick="startLevel(6)">Floristique</button></li>
+        <li><button onclick="startLevel(7)">Génétique</button></li>
+        <li><button onclick="startLevel(8)">Immunologie</button></li>
+        <li><button onclick="startLevel(9)">Microbiologie</button></li>
+        <li><button onclick="startLevel(10)">Biologie Moléculaire</button></li>
+        <li><button onclick="startLevel(11)">Biochimie</button></li>
+        <li><button onclick="startLevel(12)">Physiologie Aniamle</button></li>
+        <li><button onclick="startLevel(13)">Physiologie Végétale</button></li>
+        <li><button onclick="startLevel(14)">Technique Chimie</button></li>
+        <li><button onclick="startLevel(15)">Ecologie</button></li>
+        <li><button onclick="startLevel(16)">Enzymologie</button></li>
+        <li><button onclick="startLevel(17)">Biochimie métabolique</button></li>
+        
+      </ul>
+    </nav>
+  </header>
+
+  <main class="quiz-container">
+    <div id="question-box">
+      <h2 id="question-text">Clique sur un niveau pour commencer</h2>
+      <div id="choices-container"></div>
+      <button id="next-button" onclick="nextQuestion()" style="display:none">Suivant</button>
+    </div>
+    <div id="level-summary" style="display: none;"></div>
+  </main>
+<!-- Ajoutez ceci avant la fermeture du body -->
+ <!-- Footer -->
+ <footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>BioATP</h3>
+      <p>Plateforme éducative pour les étudiants en biologie et sciences naturelles.</p>
+      <div class="social-icons">
+        <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-section">
+      <h3>Liens rapides</h3>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="licence.html">Licence</a></li>
+        <li><a href="master.html">Master</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Newsletter</h3>
+      <p>Abonnez-vous pour recevoir les nouveaux cours.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Votre email">
+        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 BioATP - Tous droits réservés.</p>
+    <div class="footer-links">
+      <a href="#">Confidentialité</a>
+      <a href="#">Conditions</a>
+      <a href="#">FAQ</a>
+    </div>
+  </div>
+</footer>
+</body>
+
+</html>
