@@ -2519,3 +2519,60 @@ body {
     transform: rotate(-180deg);
   }
 }
+.master-status-open {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #28a745;
+  font-weight: 500;
+}
+
+.master-green-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #28a745;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* (Optionnel) Pour garder cohérence avec les autres statuts */
+.master-status-upcoming {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #007bff;
+  font-weight: 500;
+}
+
+.master-blue-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #007bff;
+  border-radius: 50%;
+  display: inline-block;
+}
+.master-green-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #28a745;
+  border-radius: 50%;
+  display: inline-block;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.master-status-open {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #28a745;
+  font-weight: 500;
+}
