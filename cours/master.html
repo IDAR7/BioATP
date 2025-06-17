@@ -11,36 +11,26 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+  <header class="header">
+  <div class="container">
+    <div class="logo">
+      <i class="fas fa-dna"></i>
+      <span>BioATP</span>
+    </div>
+    <h1 class="page-title">🎓 MASTER DE BIOLOGIE AU MAROC</h1>
+    <p class="subtitle">Explore les facultés, les masters et les nouveautés en biologie</p>
+  </div>
+</header>
 
-    <header class="main-header">
-        <div class="header-content">
-            <a href="index.html" class="logo-link" aria-label="Accueil BioATP">
-                <img src="OIP.jpg" alt="Logo BioATP" class="logo">
-                <span class="site-title">BioATP</span>
-            </a>
-            <h1 class="page-title">MASTER DE BIOLOGIE AU MAROC</h1>
-            <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Ouvrir le menu de navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </header>
-
-    <nav class="main-navbar" id="main-nav">
-        <div class="nav-container">
-            <ul class="nav-menu" role="menubar">
-                <li role="none"><a href="master.html" class="active" role="menuitem"><i class="fas fa-graduation-cap"></i> Les Master</a></li>
-            </ul>
-        </div>
-    </nav>
 
     <main class="main-container">
         <nav class="breadcrumb" aria-label="Chemin de navigation">
             <ol>
-                <li><a href="index.html">Accueil</a></li>
-                <li><span aria-current="page">Les Masters</span></li>
+                <li><a href="/index.html">Accueil</a></li>
+                <li><span aria-current="page">Master</span></li>
             </ol>
         </nav>
-
+    </main>
         <section class="stats-section">
             <h2>Statistiques Clés</h2>
             <div class="stats-grid">
@@ -784,25 +774,7 @@
                     <a href="#" aria-label="Notre chaîne YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            <nav class="footer-section footer-links" aria-label="Liens rapides du pied de page">
-                <h3 class="footer-heading">Liens rapides</h3>
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="licence.html">Licence</a></li>
-                    <li><a href="master.html">Master</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="footer-section footer-newsletter">
-                <h3 class="footer-heading">Newsletter</h3>
-                <p>Abonnez-vous pour recevoir les dernières mises à jour et les nouveaux cours.</p>
-                <form class="newsletter-form">
-                    <label for="newsletter-email" class="sr-only">Votre adresse email</label>
-                    <input type="email" id="newsletter-email" placeholder="Votre email" required aria-required="true">
-                    <button type="submit" aria-label="S'abonner à la newsletter"><i class="fas fa-paper-plane"></i></button>
-                </form>
-            </div>
-        </div>
+           
         <div class="footer-bottom">
             <p>&copy; 2025 BioATP - Tous droits réservés.</p>
             <div class="footer-legal-links">

@@ -295,3 +295,139 @@ td a:hover {
     margin-bottom: 20px;
   }
 }
+/* style-header.css */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f8fb;
+  color: #333;
+}
+
+.header {
+  background: linear-gradient(135deg, #004d7a, #008793, #00bf72);
+  padding: 50px 20px;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  /* Suppression des bordures arrondies */
+  border-radius: 0;
+  /* hauteur définie pour le "carré" (peut être ajustée) */
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.logo i {
+  font-size: 2.2rem;
+  color: #ffffff;
+  animation: spin 10s linear infinite;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #e0f7fa;
+}
+
+/* Animations */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .logo {
+    font-size: 2rem;
+  }
+  .logo i {
+    font-size: 1.6rem;
+  }
+  .page-title {
+    font-size: 1.3rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+/* style-breadcrumb.css */
+
+.breadcrumb {
+  background-color: #f8f9fa;
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  border-left: 5px solid #00bf72;
+  margin: 20px auto;
+  max-width: 960px;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.breadcrumb ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+  color: #6c757d;
+}
+
+.breadcrumb li::after {
+  content: "›";
+  margin: 0 8px;
+  color: #00bf72;
+}
+
+.breadcrumb li:last-child::after {
+  content: "";
+  margin: 0;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #007bff;
+  transition: color 0.2s ease-in-out;
+}
+
+.breadcrumb a:hover {
+  color: #0056b3;
+}
+
+.breadcrumb span[aria-current="page"] {
+  color: #212529;
+  font-weight: bold;
+}
