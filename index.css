@@ -2576,3 +2576,252 @@ body {
   color: #28a745;
   font-weight: 500;
 }
+/* Global Styles */
+/* Global Styles */
+:root {
+  --primary-color: #2b7fff;
+  --secondary-color: #28a745;
+  --background-color: #f4f7fa;
+  --card-background: #ffffff;
+  --card-border-color: #ddd;
+  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --btn-hover-color: #1e5fcb;
+  --transition-speed: 0.3s;
+  --font-base: 'Arial', sans-serif;
+  --font-size-base: 16px;
+  --font-size-large: 18px;
+  --font-size-small: 14px;
+  --dark-background: #121212;
+  --dark-primary-color: #6200ea;
+  --dark-card-background: #333;
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--dark-background);
+    color: #f4f7fa;
+  }
+
+  .cycle-dingenieur-section {
+    background-color: var(--dark-card-background);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  }
+
+  .cycle-title {
+    color: var(--dark-primary-color);
+  }
+
+  .cycle-btn {
+    background-color: var(--dark-primary-color);
+  }
+
+  .cycle-btn:hover {
+    background-color: #3700b3;
+  }
+
+  .cycle-status-label {
+    color: var(--dark-primary-color);
+  }
+}
+
+/* Section Styling */
+.cycle-dingenieur-section {
+  padding: 20px;
+  background-color: var(--card-background);
+  margin: 20px auto;
+  max-width: 1200px;
+  box-shadow: var(--card-shadow);
+  border-radius: 12px;
+  display: grid;
+  gap: 20px;
+  transition: box-shadow var(--transition-speed), background-color var(--transition-speed);
+}
+
+/* Title */
+.cycle-title {
+  font-size: clamp(22px, 5vw, 36px);
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  transition: color var(--transition-speed), text-shadow var(--transition-speed);
+}
+
+/* Subtitle */
+.cycle-subtitle {
+  font-size: clamp(14px, 3vw, 20px);
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.8;
+  transition: color var(--transition-speed);
+}
+
+/* Grid container */
+.cycle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+  transition: gap var(--transition-speed);
+}
+
+/* Card Styling */
+.cycle-card {
+  background-color: var(--card-background);
+  border: 1px solid var(--card-border-color);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+  will-change: transform;
+}
+
+.cycle-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.cycle-card h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.cycle-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Footer Styling */
+.cycle-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-small);
+  transition: font-size var(--transition-speed);
+}
+
+
+
+.cycle-status-open {
+  display: flex;
+  align-items: center;
+}
+
+.cycle-green-dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.cycle-status-label {
+  font-size: 14px;
+  color: var(--secondary-color);
+}
+
+/* Responsivité */
+@media (max-width: 1024px) {
+  .cycle-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+
+  .cycle-card {
+    width: 100%;
+    padding: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cycle-title {
+    font-size: clamp(18px, 4vw, 30px);
+  }
+
+  .cycle-subtitle {
+    font-size: clamp(12px, 3vw, 16px);
+  }
+
+  .cycle-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cycle-title {
+    font-size: clamp(16px, 5vw, 22px);
+  }
+
+  .cycle-subtitle {
+    font-size: clamp(12px, 4vw, 14px);
+  }
+
+  .cycle-card {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .cycle-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* Base Button Styling */
+.cycle-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #2b7fff;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  text-align: center;
+  font-size: clamp(14px, 3vw, 18px); /* Responsive font size */
+  transition: all 0.3s ease; /* Smooth transition */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: auto;
+  min-width: 160px;
+}
+
+.cycle-btn:hover {
+  background-color: #1e5fcb;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cycle-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Styling for Mobile & Tablet */
+@media (max-width: 768px) {
+  .cycle-btn {
+    padding: 14px 28px; /* Slightly larger padding on smaller screens */
+    min-width: 200px; /* Make the button wider on mobile */
+    font-size: clamp(16px, 4vw, 18px); /* Ensure text size adjusts */
+  }
+}
+
+@media (max-width: 480px) {
+  .cycle-btn {
+    width: 100%; /* Full-width button on very small screens */
+    padding: 15px;
+    font-size: 18px; /* Increase font size for small screens */
+  }
+}

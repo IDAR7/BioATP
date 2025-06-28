@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filière GPEE - ENSA Agadir</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a3d62;
+            --secondary: #1e88e5;
+            --accent: #43a047;
+            --light: #f5f5f5;
+            --dark: #333;
+            --text: #444;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --border-radius: 10px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+            overflow-x: hidden;
+            font-size: 16px;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+        
+        .container {
+            width: 95%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.3rem;
+            margin: 0;
+            color: var(--white);
+            line-height: 1.2;
+        }
+        
+        .logo-text span {
+            font-size: 0.75rem;
+            opacity: 0.9;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 1rem;
+        }
+        
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            padding: 5px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        nav a:hover, nav a.active {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--white);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 61, 98, 0.85), rgba(10, 61, 98, 0.85)), 
+                        url('https://images.unsplash.com/photo-1564053489984-317bbd824340?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            height: 85vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            padding: 1rem 0;
+        }
+        
+        .hero-content {
+            max-width: 100%;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+        }
+        
+        .hero h1 {
+            font-size: 1rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            max-width: 100%;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(67, 160, 71, 0.3);
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .btn:hover {
+            background: #388e3c;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(67, 160, 71, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            margin-left: 0;
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 3rem 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--white);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 0 10px;
+        }
+        
+        .section-header h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Objectives */
+        .objectives {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .objective-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .objective-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .objective-card i {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Competences */
+        .competences-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .competences-list {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .competences-list ul {
+            list-style: none;
+        }
+        
+        .competences-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        
+        .competences-list li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: var(--accent);
+        }
+        
+        .competence-chart {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .chart-bar {
+            margin-bottom: 1.2rem;
+        }
+        
+        .chart-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .chart-progress {
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .chart-progress span {
+            display: block;
+            height: 100%;
+            background: var(--secondary);
+            border-radius: 6px;
+        }
+        
+        /* Debouches */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            gap: 0.3rem;
+        }
+        
+        .tab-btn {
+            padding: 0.6rem 1rem;
+            background: var(--light);
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: var(--border-radius);
+            flex: 1;
+            min-width: 100px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        
+        .tab-btn.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .sectors-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        .sector-card {
+            background: var(--light);
+            padding: 1.2rem;
+            border-radius: var(--border-radius);
+            transition: all 0.3s;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .sector-card h4 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.6rem;
+            font-size: 1.1rem;
+        }
+        
+        .sector-card h4 i {
+            margin-right: 8px;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+        
+        /* Programme */
+        .semesters {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .semester-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .semester-header {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 1.2rem;
+            text-align: center;
+        }
+        
+        .semester-header h3 {
+            font-size: 1.3rem;
+            margin: 0;
+        }
+        
+        .semester-content {
+            padding: 1.2rem;
+        }
+        
+        .semester-content ul {
+            list-style: none;
+        }
+        
+        .semester-content li {
+            margin-bottom: 0.7rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        
+        .semester-content li:before {
+            content: '\f105';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--secondary);
+        }
+        
+        /* Inscription */
+        .inscription-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 1.8rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            width: 100%;
+        }
+        
+        .inscription-card h2 {
+            color: var(--accent);
+            font-size: 1.6rem;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 45px;
+            height: 45px;
+            background: var(--secondary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 2.5rem 0 1.2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--white);
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.6rem;
+        }
+        
+        .footer-links a {
+            color: #bbdefb;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.95rem;
+        }
+        
+        .contact-item i {
+            margin-right: 10px;
+            margin-top: 5px;
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1.2rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border-radius: 50%;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            color: #bbdefb;
+        }
+        
+        /* Responsive Styles */
+        @media (min-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .objectives {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .sectors-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .btn {
+                width: auto;
+                display: inline-block;
+                margin-right: 10px;
+            }
+            
+            .steps {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                width: 90%;
+            }
+            
+            .hero-content {
+                max-width: 80%;
+            }
+            
+            .competences-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .semesters {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            nav ul {
+                display: flex !important;
+            }
+            
+            .mobile-menu {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--primary);
+                transition: all 0.5s;
+                padding: 1.5rem;
+                z-index: 99;
+                overflow-y: auto;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav li {
+                margin: 0;
+            }
+            
+            nav a {
+                display: block;
+                padding: 12px;
+                font-size: 1.1rem;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .btn-container {
+                display: flex;
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .btn {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .section-header h2 {
+                font-size: 1.6rem;
+            }
+            
+            .hero {
+                height: 80vh;
+                min-height: 450px;
+            }
+            
+            .tab-btn {
+                min-width: 90px;
+                padding: 0.5rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section-header h2:after {
+                width: 50px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.1rem;
+            }
+            
+            .logo-text span {
+                font-size: 0.65rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-text">
+                    <h1>ENSA Agadir</h1>
+                    <span>Filière Génie des Procédés, Eau et Environnement</span>
+                </div>
+            </div>
+            <div class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#objectifs" class="active">Objectifs</a></li>
+                    <li><a href="#competences">Compétences</a></li>
+                    <li><a href="#debouches">Débouchés</a></li>
+                    <li><a href="#programme">Programme</a></li>
+                    <li><a href="#inscription">Inscription</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Filière Génie des Procédés, Eau et Environnement</h1>
+                <p>Formez-vous aux métiers d'avenir dans le domaine de l'eau et de l'environnement à l'ENSA Agadir, une formation d'excellence pour répondre aux défis environnementaux de demain.</p>
+                <div class="btn-container">
+                    <a href="#inscription" class="btn">Candidater maintenant</a>
+                    <a href="#programme" class="btn btn-outline">Découvrir le programme</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objectifs Section -->
+    <section id="objectifs">
+        <div class="container">
+            <div class="section-header">
+                <h2>Objectifs de la formation</h2>
+                <p>Former des ingénieurs hautement qualifiés</p>
+            </div>
+            <div class="objectives">
+                <div class="objective-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Formation d'excellence</h3>
+                    <p>Former des ingénieurs de haut niveau, sensibilisés aux problématiques liées à l'eau et à l'environnement.</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-flask"></i>
+                    <h3>Approfondissement technique</h3>
+                    <p>L'ingénieur GPEE est orienté vers les aspects techniques avec un approfondissement des compétences.</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-globe-africa"></i>
+                    <h3>Développement durable</h3>
+                    <p>Préparer les étudiants à contribuer au développement durable en intégrant les dimensions environnementales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compétences Section -->
+    <section id="competences" style="background-color: #f0f8ff;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Compétences à acquérir</h2>
+                <p>Un profil complet pour répondre aux défis environnementaux</p>
+            </div>
+            <div class="competences-container">
+                <div class="competences-list">
+                    <h3>Domaines de compétences</h3>
+                    <ul>
+                        <li>Connaissances de base en physique, chimie, informatique</li>
+                        <li>Procédés et traitement des déchets</li>
+                        <li>Réglementation environnementale</li>
+                        <li>Gestion des ressources hydriques</li>
+                        <li>Génie des procédés de l'eau</li>
+                        <li>Énergies renouvelables</li>
+                        <li>Opérations unitaires et simulation</li>
+                        <li>Compétences linguistiques et culturelles</li>
+                    </ul>
+                </div>
+                <div class="competence-chart">
+                    <h3>Niveaux de compétences</h3>
+                    <div class="chart-bar">
+                        <div class="chart-label">
+                            <span>Gestion des ressources en eau</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="chart-progress">
+                            <span style="width: 95%"></span>
+                        </div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">
+                            <span>Traitement des déchets</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="chart-progress">
+                            <span style="width: 90%"></span>
+                        </div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">
+                            <span>Réglementation</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="chart-progress">
+                            <span style="width: 85%"></span>
+                        </div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">
+                            <span>Simulation des procédés</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="chart-progress">
+                            <span style="width: 88%"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Debouchés Section -->
+    <section id="debouches">
+        <div class="container">
+            <div class="section-header">
+                <h2>Débouchés professionnels</h2>
+                <p>Des opportunités variées dans des secteurs stratégiques</p>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="metiers">Métiers</button>
+                <button class="tab-btn" data-tab="secteurs">Secteurs</button>
+                <button class="tab-btn" data-tab="entreprises">Entreprises</button>
+            </div>
+            
+            <div class="tab-content active" id="metiers-tab">
+                <div class="sectors-grid">
+                    <div class="sector-card">
+                        <h4><i class="fas fa-cogs"></i> Ingénieur production</h4>
+                        <p>Gestion des processus de production industrielle.</p>
+                    </div>
+                    <div class="sector-card">
+                        <h4><i class="fas fa-vial"></i> Ingénieur qualité</h4>
+                        <p>Contrôle et assurance qualité.</p>
+                    </div>
+                    <div class="sector-card">
+                        <h4><i class="fas fa-leaf"></i> Ingénieur environnement</h4>
+                        <p>Politiques environnementales.</p>
+                    </div>
+                    <div class="sector-card">
+                        <h4><i class="fas fa-industry"></i> Ingénieur procédé</h4>
+                        <p>Conception des procédés industriels.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="secteurs-tab">
+                <div class="sectors-grid">
+                    <div class="sector-card">
+                        <h4><i class="fas fa-industry"></i> Industrie pétrochimique</h4>
+                        <p>OCP, ONE, entreprises pétrolières.</p>
+                    </div>
+                    <div class="sector-card">
+                        <h4><i class="fas fa-utensils"></i> Agro-alimentaire</h4>
+                        <p>Transformation alimentaire.</p>
+                    </div>
+                    <div class="sector-card">
+                        <h4><i class="fas fa-recycle"></i> Traitement des eaux</h4>
+                        <p>Stations d'épuration.</p>
+                    </div>
+                    <div class="sector-card">
+                        <h4><i class="fas fa-water"></i> Dessalement de l'eau</h4>
+                        <p>Unités de dessalement.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="entreprises-tab">
+                <div class="sectors-grid">
+                    <div class="sector-card">
+                        <h4><i class="fas fa-building"></i> OCP Group</h4>
+                        <p>Leader mondial des phosphates.</p>
+                    </div>
+                    <div class="sector-card">
+                        <h4><i class="fas fa-bolt"></i> ONE</h4>
+                        <p>Office National de l'Électricité.</p>
+                    </div>
+                    <div class="sector-card">
+                        <h4><i class="fas fa-tint"></i> Lydec</h4>
+                        <p>Distribution d'eau et électricité.</p>
+                    </div>
+                    <div class="sector-card">
+                        <h4><i class="fas fa-water"></i> Veolia Maroc</h4>
+                        <p>Gestion de l'eau et des déchets.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programme Section -->
+    <section id="programme" style="background-color: #f0f8ff;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Programme de formation</h2>
+                <p>Cursus complet sur 6 semestres</p>
+            </div>
+            
+            <div class="semesters">
+                <!-- Semestre 1 -->
+                <div class="semester-card">
+                    <div class="semester-header">
+                        <h3>Semestre 1</h3>
+                    </div>
+                    <div class="semester-content">
+                        <ul>
+                            <li>Compétences numériques</li>
+                            <li>Transferts thermiques</li>
+                            <li>Instrumentation</li>
+                            <li>Thermodynamique</li>
+                            <li>Chimie pour l'ingénieur</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Semestre 2 -->
+                <div class="semester-card">
+                    <div class="semester-header">
+                        <h3>Semestre 2</h3>
+                    </div>
+                    <div class="semester-content">
+                        <ul>
+                            <li>Compétences culturelles</li>
+                            <li>Thermique industrielle</li>
+                            <li>Microbiologie</li>
+                            <li>Mécanique des fluides</li>
+                            <li>Méthodes numériques</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Semestre 3 -->
+                <div class="semester-card">
+                    <div class="semester-header">
+                        <h3>Semestre 3</h3>
+                    </div>
+                    <div class="semester-content">
+                        <ul>
+                            <li>Techniques IA</li>
+                            <li>Traitement des déchets</li>
+                            <li>Machines fluidiques</li>
+                            <li>Génie des réacteurs</li>
+                            <li>Énergies renouvelables</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Semestre 4 -->
+                <div class="semester-card">
+                    <div class="semester-header">
+                        <h3>Semestre 4</h3>
+                    </div>
+                    <div class="semester-content">
+                        <ul>
+                            <li>Réseaux hydrauliques</li>
+                            <li>Changement climatique</li>
+                            <li>Opérations unitaires</li>
+                            <li>Gestion de l'eau</li>
+                            <li>Simulation des procédés</li>
+                        </ul>
+                    </div>
+                </div>
+    <div class="semester-card">
+                    <div class="semester-header">
+                        <h3>Semestre 5</h3>
+                    </div>
+                    <div class="semester-content">
+                        <ul>
+                            <li>Compétences personnelles et pratiques</li>
+                            <li>RSE et QSHE</li>
+                            <li>Traitement des eaux usées</li>
+                            <li>Gestion des écosystèmes</li>
+                            <li>Qualité de l'eau et santé publique</li>
+                            <li>Réglementation environnementale</li>
+                            <li>Étude d'impact et développement durable</li>
+                            <li>Langues étrangères 5</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Semestre 6 -->
+                <div class="semester-card">
+                    <div class="semester-header">
+                        <h3>Semestre 6</h3>
+                    </div>
+                    <div class="semester-content">
+                        <ul>
+                            <li>Projet de Fin d'Études (PFE)</li>
+                            <li>Stage en entreprise</li>
+                            <li>Présentation et soutenance du mémoire</li>
+                            <li>Intégration professionnelle</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+    
+
+    <!-- Inscription Section -->
+    <section id="inscription">
+        <div class="container">
+            <div class="section-header">
+                <h2>Dossier d'inscription</h2>
+                <p>Rejoignez la filière GPEE</p>
+            </div>
+            
+            <div class="inscription-card">
+                <p>Pour intégrer la filière GPEE, les candidats doivent soumettre un dossier d'inscription complet sur le site officiel de l'ENSA Agadir.</p>
+                
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4>Pré-inscription</h4>
+                        <p>Formulaire en ligne</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4>Documents</h4>
+                        <p>Préparation des pièces</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4>Soumission</h4>
+                        <p>Dépôt du dossier</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h4>Admission</h4>
+                        <p>Résultats d'admission</p>
+                    </div>
+                </div>
+                
+                <a href="https://concours-ensa.uiz.ac.ma/inscription" target="_blank" class="btn">Visiter le site officiel</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BioATP</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Liens rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="#objectifs">Objectifs</a></li>
+                        <li><a href="#competences">Compétences</a></li>
+                        <li><a href="#debouches">Débouchés</a></li>
+                        <li><a href="#programme">Programme</a></li>
+                        <li><a href="#inscription">Inscription</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Route nationale 10, B.P. 1136, Agadir, Maroc</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+212 642731129</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>Bio-atp@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 BIOATP. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenu').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.getElementById('mainNav').classList.remove('active');
+            });
+        });
+        
+        // Tab Functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+            });
+        });
+        
+        // Highlight active navigation link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Close menu when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('mainNav');
+            const menuButton = document.getElementById('mobileMenu');
+            
+            if (nav.classList.contains('active') && 
+                !nav.contains(event.target) && 
+                event.target !== menuButton) {
+                nav.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
