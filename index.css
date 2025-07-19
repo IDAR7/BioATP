@@ -2825,3 +2825,45 @@ body {
     font-size: 18px; /* Increase font size for small screens */
   }
 }
+.cycle-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.cycle-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Bouton désactivé */
+.cycle-btn.disabled {
+  background-color: #ccc;
+  color: #666;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* Pastille rouge pour statut clôturé */
+.master-red-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.master-status-closed {
+  margin-top: 10px;
+}
+
+.master-status-labe {
+  font-weight: bold;
+  color: red;
+  vertical-align: middle;
+}
