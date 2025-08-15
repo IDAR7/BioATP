@@ -2918,3 +2918,17 @@ body {
         .btn-acheter:hover {
             background-color: #2980b9;
         }
+        @media (max-width: 768px) {
+    .produit {
+        width: 90%;
+    }
+}
+
+/* Affichage en 2 colonnes sur les grands écrans */
+@media (min-width: 1024px) {
+    .section-vente {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
