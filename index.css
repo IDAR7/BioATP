@@ -2867,3 +2867,54 @@ body {
   color: red;
   vertical-align: middle;
 }
+ .section-vente {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        .produit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            background-color: #f0f0f0;
+        }
+        .produit img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .produit h3 {
+            font-size: 1.5rem;
+            margin: 15px 0;
+        }
+        .produit p {
+            font-size: 1rem;
+            color: #555555;
+        }
+        .prix {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #2ecc71;
+            margin: 10px 0;
+        }
+        .btn-acheter {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        .btn-acheter:hover {
+            background-color: #2980b9;
+        }
