@@ -2932,69 +2932,21 @@ body {
         gap: 20px;
     }
 }
-        .containerQR{
-            background: linear-gradient(45deg, #16a085, #2980b9);
-            border-radius: 15px;
-            padding: 50px 60px;
-            text-align: center;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            transform: scale(1);
-            animation: fadeIn 1.5s ease-out;
-        }
-
-        .quranic-verse {
-            font-size: 32px;
-            color: white;
-            margin-bottom: 20px;
-            font-weight: bold;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-            letter-spacing: 1px;
-        }
-
-        .reference {
-            font-size: 20px;
-            color: #ecf0f1;
-            font-style: italic;
-            margin-top: 15px;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .quranic-verse, .reference {
-            animation: textFade 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes textFade {
-            0% {
-                color: white;
-            }
-            100% {
-                color: #f39c12;
-            }
-        }
-
-        .divider {
-            border-top: 1px solid white;
-            margin: 30px 0;
-            opacity: 0.3;
-        }
-      /* Global Reset */
+        
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Utilisation de la police Roboto */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    padding: 20px;
+    line-height: 1.6;
+}
 
 /* Conteneur principal */
 .container {
