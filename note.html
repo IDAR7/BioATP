@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcul de la Note de Licence et DEUG</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 1rem;
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 5px;
+        }
+        select, input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 20px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        select:focus, input[type="number"]:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .form-group {
+            display: none;
+        }
+        .semester-group {
+            margin-bottom: 20px;
+        }
+        .result {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            button {
+                width: 100%;
+                padding: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Calculer votre Note</h2>
+
+        <!-- Sélection du programme -->
+        <label for="programme">Choisir un programme :</label>
+        <select id="programme" onchange="choisirProgramme()">
+            <option value="">Sélectionner</option>
+            <option value="licence">Licence</option>
+            <option value="deug">DEUG-DUT-DEUST</option>
+        </select>
+
+        <!-- Formulaire Licence -->
+        <div id="formLicence" class="form-group">
+            <h3>Licence (3 ans, 6 semestres)</h3>
+            <div>
+                <h4>Année 1</h4>
+                <label for="sem1_1">Semestre 1 Note :</label>
+                <input type="number" id="sem1_1" step="0.01" required>
+
+                <label for="sem1_2">Semestre 2 Note :</label>
+                <input type="number" id="sem1_2" step="0.01" required>
+            </div>
+
+            <div>
+                <h4>Année 2</h4>
+                <label for="sem2_1">Semestre 3 Note :</label>
+                <input type="number" id="sem2_1" step="0.01" required>
+
+                <label for="sem2_2">Semestre 4 Note :</label>
+                <input type="number" id="sem2_2" step="0.01" required>
+            </div>
+
+            <div>
+                <h4>Année 3</h4>
+                <label for="sem3_1">Semestre 5 Note :</label>
+                <input type="number" id="sem3_1" step="0.01" required>
+
+                <label for="sem3_2">Semestre 6 Note :</label>
+                <input type="number" id="sem3_2" step="0.01" required>
+            </div>
+        </div>
+
+        <!-- Formulaire DEUG -->
+        <div id="formDeug" class="form-group">
+            <h3>DEUG (2 ans, 4 semestres)</h3>
+            <div>
+                <h4>Année 1</h4>
+                <label for="sem1_deug">Semestre 1 Note :</label>
+                <input type="number" id="sem1_deug" step="0.01" required>
+
+                <label for="sem2_deug">Semestre 2 Note :</label>
+                <input type="number" id="sem2_deug" step="0.01" required>
+            </div>
+
+            <div>
+                <h4>Année 2</h4>
+                <label for="sem3_deug">Semestre 3 Note :</label>
+                <input type="number" id="sem3_deug" step="0.01" required>
+
+                <label for="sem4_deug">Semestre 4 Note :</label>
+                <input type="number" id="sem4_deug" step="0.01" required>
+            </div>
+        </div>
+
+        <button type="button" onclick="calculerMoyenne()">Calculer</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function choisirProgramme() {
+            let programme = document.getElementById("programme").value;
+
+            // Cacher les deux formulaires
+            document.getElementById("formLicence").style.display = "none";
+            document.getElementById("formDeug").style.display = "none";
+            document.getElementById("result").innerHTML = "";
+
+            // Afficher le formulaire en fonction du choix
+            if (programme === "licence") {
+                document.getElementById("formLicence").style.display = "block";
+            } else if (programme === "deug") {
+                document.getElementById("formDeug").style.display = "block";
+            }
+        }
+
+        function calculerMoyenne() {
+            let programme = document.getElementById("programme").value;
+
+            if (programme === "licence") {
+                let notesLicence = [
+                    parseFloat(document.getElementById("sem1_1").value),
+                    parseFloat(document.getElementById("sem1_2").value),
+                    parseFloat(document.getElementById("sem2_1").value),
+                    parseFloat(document.getElementById("sem2_2").value),
+                    parseFloat(document.getElementById("sem3_1").value),
+                    parseFloat(document.getElementById("sem3_2").value)
+                ];
+
+                if (notesLicence.includes(NaN)) {
+                    document.getElementById("result").innerHTML = "Veuillez entrer des notes valides pour la Licence.";
+                    return;
+                }
+
+                let moyenneLicence = notesLicence.reduce((acc, note) => acc + note, 0) / notesLicence.length;
+                document.getElementById("result").innerHTML = `Moyenne Licence (6 semestres) : ${moyenneLicence.toFixed(2)}`;
+            } else if (programme === "deug") {
+                let notesDeug = [
+                    parseFloat(document.getElementById("sem1_deug").value),
+                    parseFloat(document.getElementById("sem2_deug").value),
+                    parseFloat(document.getElementById("sem3_deug").value),
+                    parseFloat(document.getElementById("sem4_deug").value)
+                ];
+
+                if (notesDeug.includes(NaN)) {
+                    document.getElementById("result").innerHTML = "Veuillez entrer des notes valides pour le DEUG.";
+                    return;
+                }
+
+                let moyenneDeug = notesDeug.reduce((acc, note) => acc + note, 0) / notesDeug.length;
+                document.getElementById("result").innerHTML = `Moyenne DEUG (4 semestres) : ${moyenneDeug.toFixed(2)}`;
+            } else {
+                document.getElementById("result").innerHTML = "Veuillez choisir un programme (DEUG ou Licence).";
+            }
+        }
+    </script>
+</body>
+</html>
