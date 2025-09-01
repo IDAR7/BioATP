@@ -475,60 +475,60 @@ document.querySelectorAll('.has-submenu > a').forEach(menuLink => {
     }
   });
 });
-// Fonction pour comparer les dates et mettre à jour le statut
-function updateMasterStatus() {
-    const masterCards = Array.from(document.querySelectorAll('.master-card')); // Sélectionner toutes les cartes de master
+// Fonction pour mettre à jour et trier les sections de Masters et Cycles d'Ingénieur
+function updateStatusAndSortCards(sectionSelector, cardSelector) {
+    const cards = Array.from(document.querySelectorAll(cardSelector)); // Sélectionner toutes les cartes
 
-    // Boucle pour mettre à jour le statut des masters
-    masterCards.forEach(card => {
+    // Mettre à jour les statuts en fonction de la date limite
+    cards.forEach(card => {
         const dateText = card.querySelector('em').textContent.trim(); // Récupérer la date limite
-        const dateLimiteParts = dateText.split('/'); // Diviser la date au format "DD/MM/YYYY"
+        const dateParts = dateText.split('/'); // Diviser la date (DD/MM/YYYY)
         
-        // Créer un objet Date en ajustant l'heure à 23:59:59.999
-        const dateLimite = new Date(
-            parseInt(dateLimiteParts[2]),  // Année
-            parseInt(dateLimiteParts[1]) - 1, // Mois (en JavaScript les mois sont indexés de 0 à 11)
-            parseInt(dateLimiteParts[0]), // Jour
-            23, 59, 59, 999 // Heure à la fin de la journée (23:59:59.999)
+        const deadlineDate = new Date(
+            parseInt(dateParts[2]),  // Année
+            parseInt(dateParts[1]) - 1, // Mois (indexé de 0)
+            parseInt(dateParts[0]), // Jour
+            23, 59, 59 // Fixer l'heure à 23:59:59 pour la comparaison
         );
-
+        
         const currentDate = new Date(); // Date actuelle
-        const statusLabel = card.querySelector('.master-status-label'); // Sélectionner le label du statut
-        const statusDot = card.querySelector('.master-green-dot'); // Sélectionner le point du statut
+        const statusLabel = card.querySelector('.master-status-label');
+        const statusDot = card.querySelector('.master-green-dot');
 
-        // Comparer la date actuelle avec la date limite
-        if (currentDate >= dateLimite) {
-            statusLabel.textContent = "Délai Expiré"; // Met à jour le texte
-            statusLabel.style.color = 'red'; // Change la couleur du texte en rouge
-            statusDot.style.backgroundColor = 'red'; // Met le point en rouge
+        // Comparer la date limite à la date actuelle
+        if (currentDate >= deadlineDate) {
+            statusLabel.textContent = "Délai Expiré";
+            statusLabel.style.color = 'red'; // Texte rouge pour "Délai Expiré"
+            statusDot.style.backgroundColor = 'red'; // Point rouge pour "Délai Expiré"
         } else {
-            statusLabel.textContent = "Ouvert"; // Met à jour le texte
-            statusLabel.style.color = 'green'; // Change la couleur du texte en vert
-            statusDot.style.backgroundColor = 'green'; // Met le point en vert
+            statusLabel.textContent = "Ouvert";
+            statusLabel.style.color = 'green'; // Texte vert pour "Ouvert"
+            statusDot.style.backgroundColor = 'green'; // Point vert pour "Ouvert"
         }
     });
 
-    // Trier les cartes en fonction du statut
-    const sortedCards = masterCards.sort((a, b) => {
+    // Trier les cartes (Ouvert en haut, Expiré en bas)
+    const sortedCards = cards.sort((a, b) => {
         const statusA = a.querySelector('.master-status-label').textContent.trim();
         const statusB = b.querySelector('.master-status-label').textContent.trim();
 
-        // Placer "Ouvert" en haut, "Délai Expiré" en bas
+        // Placer "Ouvert" en haut et "Délai Expiré" en bas
         if (statusA === "Ouvert" && statusB !== "Ouvert") {
-            return -1; // "Ouvert" en haut
+            return -1;
         }
-        return 1; // "Délai Expiré" en bas
+        return 1;
     });
 
     // Réorganiser les cartes dans le DOM
-    const masterGrid = document.querySelector('.masters-grid');
+    const grid = document.querySelector(sectionSelector);
     sortedCards.forEach(card => {
-        masterGrid.appendChild(card); // Ajouter les cartes triées au DOM
+        grid.appendChild(card); // Réinsérer les cartes triées dans la grille
     });
 }
 
-// Mettre à jour le statut au chargement de la page
+// Mettre à jour et trier les Masters et les Cycles d'Ingénieur
 window.onload = function () {
-    updateMasterStatus();
+    updateStatusAndSortCards('.masters-grid', '.master-card'); // Met à jour et trie les Masters
+    updateStatusAndSortCards('.master-grid', '.cycle-card');  // Met à jour et trie les Cycles d'Ingénieur
 };
 
