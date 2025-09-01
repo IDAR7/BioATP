@@ -475,3 +475,60 @@ document.querySelectorAll('.has-submenu > a').forEach(menuLink => {
     }
   });
 });
+// Fonction pour comparer les dates et mettre à jour le statut
+function updateMasterStatus() {
+    const masterCards = Array.from(document.querySelectorAll('.master-card')); // Sélectionner toutes les cartes de master
+
+    // Boucle pour mettre à jour le statut des masters
+    masterCards.forEach(card => {
+        const dateText = card.querySelector('em').textContent.trim(); // Récupérer la date limite
+        const dateLimiteParts = dateText.split('/'); // Diviser la date au format "DD/MM/YYYY"
+        
+        // Créer un objet Date en ajustant l'heure à 23:59:59.999
+        const dateLimite = new Date(
+            parseInt(dateLimiteParts[2]),  // Année
+            parseInt(dateLimiteParts[1]) - 1, // Mois (en JavaScript les mois sont indexés de 0 à 11)
+            parseInt(dateLimiteParts[0]), // Jour
+            23, 59, 59, 999 // Heure à la fin de la journée (23:59:59.999)
+        );
+
+        const currentDate = new Date(); // Date actuelle
+        const statusLabel = card.querySelector('.master-status-label'); // Sélectionner le label du statut
+        const statusDot = card.querySelector('.master-green-dot'); // Sélectionner le point du statut
+
+        // Comparer la date actuelle avec la date limite
+        if (currentDate >= dateLimite) {
+            statusLabel.textContent = "Délai Expiré"; // Met à jour le texte
+            statusLabel.style.color = 'red'; // Change la couleur du texte en rouge
+            statusDot.style.backgroundColor = 'red'; // Met le point en rouge
+        } else {
+            statusLabel.textContent = "Ouvert"; // Met à jour le texte
+            statusLabel.style.color = 'green'; // Change la couleur du texte en vert
+            statusDot.style.backgroundColor = 'green'; // Met le point en vert
+        }
+    });
+
+    // Trier les cartes en fonction du statut
+    const sortedCards = masterCards.sort((a, b) => {
+        const statusA = a.querySelector('.master-status-label').textContent.trim();
+        const statusB = b.querySelector('.master-status-label').textContent.trim();
+
+        // Placer "Ouvert" en haut, "Délai Expiré" en bas
+        if (statusA === "Ouvert" && statusB !== "Ouvert") {
+            return -1; // "Ouvert" en haut
+        }
+        return 1; // "Délai Expiré" en bas
+    });
+
+    // Réorganiser les cartes dans le DOM
+    const masterGrid = document.querySelector('.masters-grid');
+    sortedCards.forEach(card => {
+        masterGrid.appendChild(card); // Ajouter les cartes triées au DOM
+    });
+}
+
+// Mettre à jour le statut au chargement de la page
+window.onload = function () {
+    updateMasterStatus();
+};
+
