@@ -3084,3 +3084,9 @@ body::before {
         background-position: 200% 0;
     }
 }
+.status-ouvert {
+    color: green;
+}
+.status-expire {
+    color: red;
+}

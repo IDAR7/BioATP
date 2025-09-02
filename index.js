@@ -548,3 +548,42 @@ document.addEventListener("DOMContentLoaded", function () {
  // Met à jour et trie les Masters
     updateStatusAndSortCards('.master-grid', '.cycle-card');  // Met à jour et trie les Cycles d'Ingénieur
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const grid = document.querySelector('.masters-grid');
+    const cards = Array.from(document.querySelectorAll('.master-card'));
+
+    // عرض كل البطاقات فوراً
+    const fragment = document.createDocumentFragment();
+    cards.forEach(card => fragment.appendChild(card));
+    grid.appendChild(fragment);
+
+    // التحليل في الخلفية بدون تعطيل الصفحة
+    const currentDate = new Date();
+    currentDate.setHours(0,0,0,0);
+
+    let i = 0;
+    function updateNextCard() {
+        if (i >= cards.length) return;
+
+        const card = cards[i];
+        const dateText = card.querySelector('em').textContent.trim();
+        const [day, month, year] = dateText.split('/').map(Number);
+        const deadline = new Date(year, month-1, day);
+        const isExpired = currentDate >= deadline;
+
+        const label = card.querySelector('.master-status-label');
+        const dot = card.querySelector('.master-green-dot');
+
+        label.classList.toggle('status-ouvert', !isExpired);
+        label.classList.toggle('status-expire', isExpired);
+        dot.classList.toggle('status-ouvert', !isExpired);
+        dot.classList.toggle('status-expire', isExpired);
+
+        label.textContent = isExpired ? 'انتهت' : 'مفتوح';
+        
+        i++;
+        requestAnimationFrame(updateNextCard); // تحديث البطاقة التالية
+    }
+
+    updateNextCard(); // بدء التحديث التدريجي
+});
