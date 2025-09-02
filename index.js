@@ -476,58 +476,75 @@ document.querySelectorAll('.has-submenu > a').forEach(menuLink => {
   });
 });
 // Fonction pour mettre à jour et trier les sections de Masters et Cycles d'Ingénieur
-function updateStatusAndSortCards(sectionSelector, cardSelector) {
-    const cards = Array.from(document.querySelectorAll(cardSelector)); // Sélectionner toutes les cartes
+document.addEventListener("DOMContentLoaded", function () {
+    function updateStatusAndSortCards(sectionSelector, cardSelector) {
+        const cards = Array.from(document.querySelectorAll(cardSelector)); // Select all cards
 
-    // Mettre à jour les statuts en fonction de la date limite
-    cards.forEach(card => {
-        const dateText = card.querySelector('em').textContent.trim(); // Récupérer la date limite
-        const dateParts = dateText.split('/'); // Diviser la date (DD/MM/YYYY)
-        
-        const deadlineDate = new Date(
-            parseInt(dateParts[2]),  // Année
-            parseInt(dateParts[1]) - 1, // Mois (indexé de 0)
-            parseInt(dateParts[0]), // Jour
-            23, 59, 59 // Fixer l'heure à 23:59:59 pour la comparaison
-        );
-        
-        const currentDate = new Date(); // Date actuelle
-        const statusLabel = card.querySelector('.master-status-label');
-        const statusDot = card.querySelector('.master-green-dot');
-
-        // Comparer la date limite à la date actuelle
-        if (currentDate >= deadlineDate) {
-            statusLabel.textContent = "Délai Expiré";
-            statusLabel.style.color = 'red'; // Texte rouge pour "Délai Expiré"
-            statusDot.style.backgroundColor = 'red'; // Point rouge pour "Délai Expiré"
-        } else {
-            statusLabel.textContent = "Ouvert";
-            statusLabel.style.color = 'green'; // Texte vert pour "Ouvert"
-            statusDot.style.backgroundColor = 'green'; // Point vert pour "Ouvert"
+        // Function to strip the time and compare only the date
+        function stripTime(date) {
+            const strippedDate = new Date(date);
+            strippedDate.setHours(0, 0, 0, 0); // Set to midnight to compare only dates
+            return strippedDate;
         }
-    });
 
-    // Trier les cartes (Ouvert en haut, Expiré en bas)
-    const sortedCards = cards.sort((a, b) => {
-        const statusA = a.querySelector('.master-status-label').textContent.trim();
-        const statusB = b.querySelector('.master-status-label').textContent.trim();
+        const currentDate = stripTime(new Date()); // Precompute the current date (midnight)
 
-        // Placer "Ouvert" en haut et "Délai Expiré" en bas
-        if (statusA === "Ouvert" && statusB !== "Ouvert") {
-            return -1;
-        }
-        return 1;
-    });
+        // Update statuses based on the deadline
+        cards.forEach(card => {
+            const dateText = card.querySelector('em').textContent.trim(); // Get the deadline date
+            const dateParts = dateText.split('/'); // Split the date (DD/MM/YYYY)
 
-    // Réorganiser les cartes dans le DOM
-    const grid = document.querySelector(sectionSelector);
-    sortedCards.forEach(card => {
-        grid.appendChild(card); // Réinsérer les cartes triées dans la grille
-    });
-}
+            // Check if the date is valid
+            if (dateParts.length !== 3) {
+                console.error('Invalid date format:', dateText);
+                return; // Skip cards with invalid dates
+            }
 
-// Mettre à jour et trier les Masters et les Cycles d'Ingénieur
-window.onload = function () {
-    updateStatusAndSortCards('.masters-grid', '.master-card'); // Met à jour et trie les Masters
+            const deadlineDate = new Date(
+                parseInt(dateParts[2]),  // Year
+                parseInt(dateParts[1]) - 1, // Month (0-indexed)
+                parseInt(dateParts[0]), // Day
+                23, 59, 59 // Set time to 23:59:59 for accurate comparison
+            );
+
+            // Compare the current date with the deadline date
+            const isExpired = currentDate >= stripTime(deadlineDate);
+
+            // Find status label and dot
+            const statusLabel = card.querySelector('.master-status-label');
+            const statusDot = card.querySelector('.master-green-dot');
+
+            // Update status text and styles based on expiration
+            const statusText = isExpired ? "Délai Expiré" : "Ouvert";
+            const statusColor = isExpired ? 'red' : 'green';
+
+            // Apply status in batch to avoid multiple reflows
+            statusLabel.textContent = statusText;
+            statusLabel.style.color = statusColor;
+            statusDot.style.backgroundColor = statusColor;
+        });
+
+        // Sort cards (Ouvert at the top, Délai Expiré at the bottom)
+        const sortedCards = cards.sort((a, b) => {
+            const statusA = a.querySelector('.master-status-label').textContent.trim();
+            const statusB = b.querySelector('.master-status-label').textContent.trim();
+
+            // Place "Ouvert" at the top and "Délai Expiré" at the bottom
+            if (statusA === "Ouvert" && statusB !== "Ouvert") {
+                return -1; // Ouvert comes first
+            }
+            return 1; // Default is Délai Expiré comes last
+        });
+
+        // Reorganize cards in the DOM based on sorted order
+        const grid = document.querySelector(sectionSelector);
+        sortedCards.forEach(card => {
+            grid.appendChild(card); // Re-insert the sorted cards into the grid
+        });
+    }
+
+    // Update and sort the Master's program cards when the page is loaded
+    updateStatusAndSortCards('.masters-grid', '.master-card'); // Update and sort Masters
+ // Met à jour et trie les Masters
     updateStatusAndSortCards('.master-grid', '.cycle-card');  // Met à jour et trie les Cycles d'Ingénieur
-};
+});
