@@ -531,4 +531,3 @@ window.onload = function () {
     updateStatusAndSortCards('.masters-grid', '.master-card'); // Met à jour et trie les Masters
     updateStatusAndSortCards('.master-grid', '.cycle-card');  // Met à jour et trie les Cycles d'Ingénieur
 };
-
