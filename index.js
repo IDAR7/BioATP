@@ -579,7 +579,7 @@ document.addEventListener("DOMContentLoaded", function () {
         dot.classList.toggle('status-ouvert', !isExpired);
         dot.classList.toggle('status-expire', isExpired);
 
-        label.textContent = isExpired ? 'انتهت' : 'مفتوح';
+        label.textContent = isExpired ? 'Délai Expiré' : 'Ouvert';
         
         i++;
         requestAnimationFrame(updateNextCard); // تحديث البطاقة التالية
