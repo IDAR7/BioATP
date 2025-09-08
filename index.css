@@ -2867,226 +2867,113 @@ body {
   color: red;
   vertical-align: middle;
 }
- .section-vente {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            padding: 20px;
-            background-color: #ffffff;
-        }
-        .produit {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 20px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            background-color: #f0f0f0;
-        }
-        .produit img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-        .produit h3 {
-            font-size: 1.5rem;
-            margin: 15px 0;
-        }
-        .produit p {
-            font-size: 1rem;
-            color: #555555;
-        }
-        .prix {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #2ecc71;
-            margin: 10px 0;
-        }
-        .btn-acheter {
-            background-color: #3498db;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: background-color 0.3s;
-        }
-        .btn-acheter:hover {
-            background-color: #2980b9;
-        }
-        @media (max-width: 768px) {
-    .produit {
-        width: 90%;
-    }
+ /* ===============================
+   BioATP – CTA + Carte (responsive)
+   moderne, accessible et dark-mode
+================================= */
+
+/* ---------- Variables ---------- */
+:root{
+  --primary: #1e40af;      /* Bleu profond */
+  --primary-2: #3b82f6;    /* Bleu clair */
+  --accent:  #22c55e;      /* Vert */
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --text-muted:#475569;
+  --border:#e2e8f0;
+
+  --radius: 14px;
+  --shadow-sm: 0 6px 14px rgba(2, 6, 23, .08);
+  --shadow-md: 0 16px 40px rgba(2, 6, 23, .16);
+
+  /* Typo fluide */
+  --fs-h1: clamp(1.4rem, 1rem + 2vw, 2.2rem);
+  --fs-p: clamp(.98rem, .6vw + .75rem, 1.05rem);
+  --fs-btn: clamp(.96rem, .35vw + .86rem, 1.05rem);
 }
 
-/* Affichage en 2 colonnes sur les grands écrans */
-@media (min-width: 1024px) {
-    .section-vente {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0b1220;
+    --surface:#0f172a;
+    --text:#e5e7eb;
+    --text-muted:#94a3b8;
+    --border:#1f2937;
+    --shadow-sm: 0 6px 16px rgba(0,0,0,.45);
+    --shadow-md: 0 24px 60px rgba(0,0,0,.6);
+  }
 }
-        
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+/* ---------- Base ---------- */
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Accessibilité focus/motion */
+:where(:focus-visible){
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary-2) 45%, white);
+  border-radius: 12px;
+}
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; }
+}
+
+/* ===============================
+   Bouton CTA "résultats des Masters"
+================================= */
+
+/* ===============================
+   Carte "Calculer votre note finale"
+================================= */
+/* Ligne de CTAs */
+/* Ligne des CTAs, centrée */
+.cta-row{
+  display: flex;
+  justify-content: center;   /* <-- centre horizontal */
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 16px auto;
+}
+
+/* Bouton */
+.cta-results{
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .85rem 1.15rem;
+  min-height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: .2px;
+  box-shadow: 0 10px 30px rgba(2,6,23,.08);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  white-space: nowrap;
+}
+
+.cta-results:hover{ transform: translateY(-2px); box-shadow: 0 16px 40px rgba(2,6,23,.12); }
+.cta-results:focus-visible{ outline: none; box-shadow: 0 0 0 4px rgba(37,99,235,.3); }
+
+/* Icône */
+.cta-icon{ width: 18px; height: 18px; transition: transform .18s ease; }
+.cta-results:hover .cta-icon{ transform: translateX(3px); }
+
+/* Mobile : empile mais reste centré */
+@media (max-width: 560px){
+  .cta-row{ flex-direction: column; }
+  .cta-results{ width: 100%; justify-content: center; }
 }
 
 /* Utilisation de la police Roboto */
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f7fc;
-    color: #333;
-    padding: 20px;
-    line-height: 1.6;
-}
-
-/* Conteneur principal */
-.container {
-    max-width: 900px;
-    margin: 20px auto;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    transition: all 0.3s ease;
-}
-
-/* Animation de l'apparence du conteneur au survol */
-.container:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    transform: scale(1.02);
-}
-
-/* Titre principal */
-h1 {
-    font-size: 2.5rem;
-    color: #2c3e50;
-    text-align: center;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-}
-
-/* Changer la couleur du titre au survol */
-h1:hover {
-    color: #3498db;
-}
-
-/* Style du paragraphe */
-p {
-    font-size: 1.2rem;
-    color: #7f8c8d;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-/* Lien bouton */
-a {
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    background-color: #3498db;
-    color: white;
-    padding: 16px 25px;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    width: 100%;
-    max-width: 250px;
-    margin: 0 auto;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-/* Effet de survol du lien */
-a:hover {
-    background-color: #2980b9;
-    transform: translateY(-3px);
-}
-
-/* Réponse au survol (effet de lueur) */
-a:focus, a:active {
-    box-shadow: 0 0 10px #3498db;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        padding: 30px;
-        margin: 10px;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    p {
-        font-size: 1rem;
-    }
-
-    a {
-        font-size: 1rem;
-        padding: 14px 20px;
-        max-width: 100%;
-    }
-}
-
-/* Pour les petits écrans (smartphones en portrait) */
-@media (max-width: 480px) {
-    .container {
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 1.7rem;
-    }
-
-    p {
-        font-size: 0.9rem;
-    }
-
-    a {
-        padding: 12px 18px;
-        font-size: 0.9rem;
-    }
-}
-
-/* Ajout d'un fond de page animé */
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #3498db, #2ecc71, #f39c12);
-    background-size: 200% 200%;
-    animation: gradientAnimation 5s ease infinite;
-    z-index: -1;
-}
-
-/* Animation du fond */
-@keyframes gradientAnimation {
-    0% {
-        background-position: 200% 0;
-    }
-    50% {
-        background-position: 0 100%;
-    }
-    100% {
-        background-position: 200% 0;
-    }
-}
-.status-ouvert {
-    color: green;
-}
-.status-expire {
-    color: red;
-}

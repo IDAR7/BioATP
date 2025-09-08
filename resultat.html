@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>bioATP — Résultats Masters</title>
+  <meta name="description" content="Résultats des Masters — pré-inscription et admission. Actualités, recherche, filtres et téléchargement des PDF." />
+  <style>
+    /* ================= Base & thèmes (modernisé) ================= */
+    *,*::before,*::after{box-sizing:border-box}
+    html:focus-within{scroll-behavior:smooth}
+    html,body{height:100%}
+    :root{
+      --bg:#0b1220; --bg-soft:#0e1526; --surface:#0f172a; --surface-2:#111b2e;
+      --text:#e6edf7; --muted:#9fb0c3; --muted-2:#7b8ca1;
+      --brand:#4f8cff; --brand-2:#b07cff; --ok:#2bd576; --warn:#ffb020; --danger:#ff6b6b;
+      --ring:rgba(79,140,255,.35); --border:#1c2a41; --border-2:#21324f; --shadow:0 10px 25px rgba(0,0,0,.35);
+      --radius:14px; --radius-lg:18px; --radius-xl:22px;
+      --chip:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
+      --grad-1:linear-gradient(120deg,var(--brand),var(--brand-2));
+      --glass:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));
+    }
+    .light{
+      --bg:#f1f5fb; --bg-soft:#f6f8fc; --surface:#ffffff; --surface-2:#f9fbff;
+      --text:#0f172a; --muted:#5b6b82; --muted-2:#6b7a90;
+      --brand:#2563eb; --brand-2:#9333ea; --ok:#16a34a; --warn:#b45309; --danger:#dc2626;
+      --ring:rgba(37,99,235,.25); --border:#e5eaf2; --border-2:#dbe4f1; --shadow:0 10px 22px rgba(2,8,23,.08);
+    }
+    @media (prefers-reduced-motion: reduce){
+      *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important}
+    }
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,"Helvetica Neue",Arial;background:radial-gradient(1200px 800px at 10% -10%,rgba(79,140,255,.12),transparent),radial-gradient(1200px 800px at 110% 10%,rgba(176,124,255,.12),transparent),var(--bg);color:var(--text);line-height:1.55}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:min(1150px,100%);margin-inline:auto;padding:clamp(12px,2.5vw,22px)}
+    .page{display:grid;gap:clamp(12px,2vw,16px)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .skip-link{position:absolute;left:-9999px;top:auto}
+    .skip-link:focus{left:12px;top:12px;z-index:1000;background:var(--surface);color:var(--text);border:2px solid var(--brand);padding:8px 12px;border-radius:10px}
+
+    /* ================= Header ================= */
+    header{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:clamp(12px,2vw,16px) clamp(14px,2.2vw,20px);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;box-shadow:var(--shadow)}
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .logo svg{display:block;width:clamp(36px,6vw,44px);height:clamp(36px,6vw,44px)}
+    .site-title{font-size:clamp(1.05rem,2.5vw,1.25rem);font-weight:800;letter-spacing:.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .actions{display:flex;gap:8px}
+    .btn{appearance:none;border:1px solid var(--border);background:var(--surface-2);color:var(--text);padding:9px 12px;border-radius:12px;cursor:pointer;box-shadow:inset 0 -1px 0 rgba(255,255,255,.04)}
+    .btn:hover{transform:translateY(-1px)}
+    .btn:focus{outline:3px solid var(--ring);outline-offset:2px}
+
+    /* ================= Layout ================= */
+    .titlebar{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 20px;font-size:clamp(1.1rem,2.8vw,1.35rem);font-weight:800;box-shadow:var(--shadow)}
+    .bodygrid{display:grid;grid-template-columns:2fr 1fr;gap:clamp(12px,2vw,16px)}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:clamp(14px,2vw,18px);box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px;font-size:clamp(1rem,2.4vw,1.1rem);font-weight:800}
+    .muted{color:var(--muted);font-size:.95rem}
+    .stack{display:grid;gap:clamp(12px,2vw,16px)}
+    footer{margin-top:8px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px;text-align:center;color:var(--muted);box-shadow:var(--shadow)}
+
+    /* ================= Toolbar (recherche / filtres) ================= */
+    .toolbar{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;margin-bottom:10px}
+    .input,.select{border:1px solid var(--border);background:var(--surface-2);color:var(--text);padding:10px 12px;border-radius:12px}
+    .input:focus,.select:focus{outline:3px solid var(--ring);outline-offset:2px}
+
+    /* ================= Master cards ================= */
+    .masters{display:grid;gap:12px}
+    .master-card{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--surface);padding:14px;box-shadow:var(--shadow)}
+    .master-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .master-title{margin:0;font-size:clamp(1rem,2.4vw,1.12rem);font-weight:800}
+    .master-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .badge{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);border-radius:999px;padding:4px 10px;font-size:.9rem;color:var(--muted);background:var(--chip)}
+    .badge.ok{color:var(--ok)}
+    .badge.warn{color:var(--warn)}
+    .master-body{margin-top:8px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .master-desc{margin:0;color:var(--muted-2)}
+    .actions-row{display:flex;gap:8px;flex-wrap:wrap}
+    .btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);padding:8px 12px;border-radius:12px;background:var(--surface-2);text-decoration:none}
+    .btn-ghost:hover{transform:translateY(-1px)}
+    .btn-ghost:focus{outline:3px solid var(--ring);outline-offset:2px}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;border:1px solid transparent;padding:8px 12px;border-radius:12px;background:var(--grad-1);color:#fff;box-shadow:0 6px 18px rgba(79,140,255,.3)}
+    .btn-primary:focus{outline:3px solid var(--ring);outline-offset:2px}
+    .empty{border:1px dashed var(--border);border-radius:12px;padding:18px;text-align:center;color:var(--muted)}
+
+    /* ================= Toast ================= */
+    .toast{position:fixed;inset:auto 16px 16px auto;background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:12px;padding:10px 12px;opacity:0;transform:translateY(8px);transition:opacity .15s, transform .15s}
+    .toast.show{opacity:1;transform:translateY(0)}
+
+    /* ================= Actualités enrichies ================= */
+    .news-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+    .tab{appearance:none;border:1px solid var(--border);background:var(--surface-2);color:var(--text);padding:6px 10px;border-radius:999px;cursor:pointer}
+    .tab[aria-selected="true"]{background:var(--grad-1);color:#fff;border-color:transparent}
+    .news-viewport{position:relative;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--surface)}
+    .news-list{list-style:none;margin:0;padding:0}
+    .news-item{display:grid;gap:6px;padding:12px 14px;border-bottom:1px solid var(--border);background:var(--surface)}
+    .news-item:last-child{border-bottom:none}
+    .news-title{font-weight:800;margin:0}
+    .news-meta{display:flex;gap:8px;flex-wrap:wrap;font-size:.9rem;color:var(--muted)}
+    .tag{border:1px solid var(--border);border-radius:999px;padding:2px 8px;background:var(--chip)}
+    .tag.master{color:var(--brand)}
+    .badge-new{border-radius:6px;padding:2px 6px;background:var(--grad-1);color:#fff;font-size:.8rem}
+    .news-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+    .news-btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);padding:6px 10px;border-radius:10px;background:var(--surface-2);text-decoration:none}
+    .news-controls{display:flex;justify-content:space-between;align-items:center;padding:8px;background:var(--surface-2)}
+    .ctrl{appearance:none;border:1px solid var(--border);background:var(--surface);color:var(--text);padding:6px 10px;border-radius:10px;cursor:pointer}
+    .ctrl:focus,.tab:focus,.news-btn:focus{outline:3px solid var(--ring);outline-offset:2px}
+    .news-viewport[data-mode="slider"] .news-list{display:grid;grid-auto-rows:1fr}
+    .news-viewport[data-mode="slider"] .news-item{min-height:110px}
+    .slide-enter{animation:fadeIn .25s ease-out}
+    @keyframes fadeIn{from{opacity:.001;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+    /* surlignage d’une carte master quand on y saute */
+    @keyframes flash{0%{box-shadow:0 0 0 0 rgba(79,140,255,.0)}50%{box-shadow:0 0 0 6px rgba(79,140,255,.25)}100%{box-shadow:0 0 0 0 rgba(79,140,255,.0)}}
+    .highlight{animation:flash 1.2s ease-in-out 1}
+
+    /* ================= Informations (section modernisée) ================= */
+    .info{position:sticky;top:12px;background:var(--glass);backdrop-filter:saturate(140%) blur(6px)}
+    .info-grid{display:grid;gap:12px}
+
+    .timeline{display:grid;gap:10px;border:1px solid var(--border);border-radius:12px;padding:12px;background:var(--surface-2)}
+    .timeline h4{margin:0 0 2px;font-size:1rem;font-weight:800}
+    .steps{display:grid;gap:10px}
+    .step{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--brand);margin-top:6px;box-shadow:0 0 0 4px rgba(79,140,255,.15)}
+    .step strong{display:block}
+    .step time{color:var(--muted)}
+
+    .contact{display:grid;gap:10px;border:1px solid var(--border);border-radius:12px;padding:12px;background:var(--surface-2)}
+    .contact-row{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);padding:8px 10px;border-radius:999px;background:var(--chip)}
+    .chip svg{opacity:.9}
+    .contact a{text-decoration:underline dotted}
+
+    .faq{border:1px solid var(--border);border-radius:12px;overflow:hidden}
+    .faq details{background:var(--surface);border-bottom:1px solid var(--border)}
+    .faq details:last-child{border-bottom:none}
+    .faq summary{cursor:pointer;list-style:none;padding:12px 14px;font-weight:700}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq p{margin:0;padding:0 14px 12px;color:var(--muted-2)}
+    .faq summary:focus{outline:3px solid var(--ring);outline-offset:2px}
+
+    /* =============== Responsive smartphone (toutes tailles) =============== */
+    @media (hover:none) and (pointer:coarse){
+      :root{ --radius:16px; }
+      .btn, .btn-ghost, .btn-primary, .ctrl, .tab, .select, .input{ min-height:44px; padding-block:12px; }
+      .news-controls{ gap:6px }
+    }
+    .container{ padding-left:calc(clamp(12px,2.5vw,22px) + env(safe-area-inset-left)); padding-right:calc(clamp(12px,2.5vw,22px) + env(safe-area-inset-right)); }
+    header{ padding-left:calc(clamp(12px,2vw,16px) + env(safe-area-inset-left)); padding-right:calc(clamp(14px,2.2vw,20px) + env(safe-area-inset-right)); }
+    footer{ padding-left:calc(16px + env(safe-area-inset-left)); padding-right:calc(16px + env(safe-area-inset-right)); }
+
+    @media (max-width: 900px){ .bodygrid{ grid-template-columns:1fr } .info{ position:relative; top:auto } }
+    @media (max-width:700px){ .toolbar{ grid-template-columns:1fr; } .select, .input{ width:100% } .actions-row{ width:100% } .btn-primary, .btn-ghost{ flex:1 1 auto; justify-content:center } }
+    @media (max-width:600px){ .site-title{ font-size:1.05rem } .titlebar{ padding:14px 16px; font-size:1.1rem } .card{ padding:14px } .master-title{ font-size:1.02rem } .badge{ font-size:.88rem; padding:4px 9px } }
+    @media (max-width:480px){ .brand{ gap:10px } .logo svg{ width:34px; height:34px } header{ gap:10px } .master-head{ gap:8px } .master-body{ gap:10px } .news-item{ padding:10px 12px } .news-controls{ padding:6px 8px } .tab{ padding:6px 10px } .btn, .btn-ghost, .btn-primary{ padding-inline:10px } }
+    @media (max-width:380px){ .master-meta{ gap:6px } .actions-row{ gap:6px } .badge{ padding:3px 8px } .master-card{ padding:12px } .news-title{ font-size:1rem } }
+    @media (max-height:480px) and (orientation:landscape){ .news-viewport[data-mode="slider"] .news-item{ min-height:84px } .titlebar{ padding-block:12px } }
+
+  </style>
+</head>
+<body class="light">
+  <a class="skip-link" href="#contenu-principal">Aller au contenu</a>
+
+  <div class="container page">
+    <header>
+      <div class="brand" aria-label="Logo et nom du site">
+        <div class="logo" aria-hidden="true" title="Logo bioATP — double hélice">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Double hélice ADN">
+            <g fill="none" stroke="url(#grad)" stroke-width="3" stroke-linecap="round">
+              <path d="M20 4 C 44 12, 20 52, 44 60" />
+              <path d="M44 4 C 20 12, 44 52, 20 60" />
+              <path d="M22 12 L 42 8" />
+              <path d="M22 24 L 42 20" />
+              <path d="M22 36 L 42 32" />
+              <path d="M22 48 L 42 44" />
+              <path d="M22 58 L 42 54" />
+            </g>
+            <defs>
+              <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="var(--brand)"/>
+                <stop offset="100%" stop-color="var(--brand-2)"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="site-title">bioATP</div>
+      </div>
+      <div class="actions">
+        <button class="btn" id="themeToggle" aria-pressed="false" aria-label="Basculer le thème">🌓 Thème</button>
+      </div>
+    </header>
+
+    <div class="titlebar">Résultats des Masters</div>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9422433134575796"
+     data-ad-slot="1643527148"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    <main class="bodygrid" id="contenu-principal">
+      <!-- Colonne principale -->
+      <section class="card" aria-labelledby="res-title">
+        <h3 id="res-title">Liste des résultats</h3>
+        <p class="muted" id="maj" aria-live="polite"></p>
+
+        <!-- Toolbar -->
+        <div class="toolbar" role="region" aria-label="Recherche et filtres">
+          <input id="q" class="input" type="search" placeholder="Rechercher un master…" aria-label="Rechercher" />
+          <select id="fac" class="select" aria-label="Filtrer par faculté">
+            <option value="">Toutes les facultés</option>
+          </select>
+          <select id="type" class="select" aria-label="Filtrer par type de résultat">
+            <option value="">Tous les types</option>
+            <option value="preselection">Pré‑sélection</option>
+            <option value="admission">Admission</option>
+            <option value="liste_attente">Liste d’attente</option>
+          </select>
+          <select id="tri" class="select" aria-label="Trier">
+            <option value="recent">Plus récents</option>
+            <option value="alpha">A → Z</option>
+            <option value="fac">Par faculté</option>
+          </select>
+        </div>
+
+        <!-- Liste -->
+        <div class="masters" id="masters-list" aria-live="polite"></div>
+        <div id="empty" class="empty" hidden>Aucun résultat ne correspond à vos filtres.</div>
+      </section>
+
+      <!-- Sidebar -->
+      <aside class="stack" aria-label="Colonne latérale">
+        <section class="card" aria-labelledby="news-title">
+          <h3 id="news-title">Actualités</h3>
+
+          <div class="news-toolbar" role="tablist" aria-label="Catégories d’actualités">
+            <button class="tab" role="tab" id="tab-all"   aria-selected="true"  data-filter="">Tous</button>
+            <button class="tab" role="tab" id="tab-mast"  aria-selected="false" data-filter="master">Masters</button>
+            <button class="tab" role="tab" id="tab-gen"   aria-selected="false" data-filter="general">Général</button>
+          </div>
+
+          <div class="news-viewport" id="news-viewport" data-mode="slider" aria-live="polite">
+            <ul class="news-list" id="news-list"></ul>
+            <div class="news-controls">
+              <button class="ctrl" id="prevNews" aria-label="Actualité précédente">◀</button>
+              <div class="muted" id="newsCounter" aria-hidden="true"></div>
+              <button class="ctrl" id="nextNews" aria-label="Actualité suivante">▶</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======= Section Informations modernisée ======= -->
+        <section class="card info" aria-labelledby="info-title">
+          <h3 id="info-title">Informations</h3>
+          <div class="info-grid">
+            <!-- Timeline / échéances -->
+            <div class="timeline" aria-labelledby="tit-deadlines">
+              <h4 id="tit-deadlines">Échéances</h4>
+              <div class="steps">
+                <div class="step">
+                  <span class="dot" aria-hidden="true"></span>
+                  <div><strong>Inscriptions</strong><time datetime="2025-10-15">Jusqu’au 15 octobre</time></div>
+                </div>
+                <div class="step">
+                  <span class="dot" aria-hidden="true"></span>
+                  <div><strong>Confirmation des dossiers</strong><time datetime="2025-10-20">Du 16 au 20 octobre</time></div>
+                </div>
+                <div class="step">
+                  <span class="dot" aria-hidden="true"></span>
+                  <div><strong>Soutenances</strong><time datetime="2025-11-04">Semaine du 4 novembre</time></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact & liens utiles -->
+            <div class="contact" aria-labelledby="tit-contact">
+              <h4 id="tit-contact" style="margin:0;font-size:1rem;font-weight:800">Contact & liens utiles</h4>
+              <div class="contact-row">
+                <span class="chip" title="E‑mail">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 6h16v12H4z"/><path d="M22 6 12 13 2 6"/></svg>
+                  <a href="mailto:bio-atp@gmail.com">bio-atp@gmail.com</a>
+                </span>
+                <span class="chip" title="Téléphone">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.31 1.77.57 2.61a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.84.26 1.71.45 2.61.57A2 2 0 0 1 22 16.92z"/></svg>
+                  <a href="tel:+212642731129">+212 642731129</a>
+                </span>
+                <span class="chip" title="Localisation">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Agadir — Maroc
+                </span>
+              </div>
+              <div class="contact-row">
+                <a class="btn-ghost" href="#" download>Guide PDF des inscriptions</a>
+                <a class="btn-ghost" href="#">FAQ complète</a>
+              </div>
+            </div>
+
+            <!-- FAQ courte -->
+            <div class="faq" aria-label="Questions fréquentes">
+              <details>
+                <summary>Quelles pièces fournir pour l’inscription ?</summary>
+                <p>Copie de la CIN, relevés des notes, 2 photos. Le détail est fourni dans le guide PDF.</p>
+              </details>
+              <details>
+                <summary>Comment récupérer mon numéro de dossier ?</summary>
+                <p>Le numéro figure sur le reçu de candidature. Vous pouvez aussi le retrouver via l’e‑mail de confirmation.</p>
+              </details>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      © <span id="year"></span> bioATP — Tous droits réservés
+    </footer>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module">
+    // ====== Données Masters (vos liens + types variés) ======
+    const masters = [
+      { id:"mqsa-moh-pre", titre:"Master - Management de la Qualité et Sécurité des Aliments (MQSA)", fac:"FST Mohammedia", type:"pré-sélectionne", desc:"listes des candidats convoqués au concours écrit", date:"2025-09-05", pdf:"https://www.fstm.ac.ma/formation_initiale/files/mst/concours_2025_2026/ecrit/candidatsretenusconcoursMSTMQSA.pdf" },
+      { id:"mqse-moh-pre", titre:"Master - Management de la Qualité, de la Sécurité et de l’Environnement (MQSE)", fac:"FST Mohammedia", type:"pré-sélectionne", desc:"listes des candidats convoqués au concours écrit", date:"2025-09-05", pdf:"https://www.fstm.ac.ma/formation_initiale/files/mst/concours_2025_2026/ecrit/candidatsretenusconcoursMasterMQSE.pdf" },
+      { id:"magbio-moh-pre", titre:"Master - Microbiologie Appliquée et Génie-Biologique (MAGBio)", fac:"FST Mohammedia", type:"pré-sélectionne", desc:"listes des candidats convoqués au concours écrit", date:"2025-09-05", pdf:"https://www.fstm.ac.ma/formation_initiale/files/mst/concours_2025_2026/ecrit/candidatsretenusconcoursMasterMAGBio.pdf" },
+      { id:"sge-moh-pre", titre:"Master - Sciences et Gestion de l'Environnement (SGE)", fac:"FST Mohammedia", type:"pré-sélectionne", desc:"listes des candidats convoqués au concours écrit", date:"2025-09-05", pdf:"https://www.fstm.ac.ma/formation_initiale/files/mst/concours_2025_2026/ecrit/candidatsretenusconcoursMasterSGE2025_2.pdf" },
+      { id:"bm-fes-pre", titre:"Master Biotechnologie Microbienne", fac:"FST Fès", type:"pré-sélectionne", desc:"listes des candidats convoqués au concours écrit", date:"2025-09-05", pdf:"https://f.fst-usmba.ac.ma/preinscription/2025-2026/mst/admis/ecrit/listes/liste%20des%20candidats-pr%C3%A9selct_BM-%2025-26_actualis%C3%A9e.pdf" },
+      { id:"gcb-fes-pre", titre:"Master Gestion et Conservation de la Biodiversité", fac:"FST Fès", type:"pré-sélectionne", desc:"listes des candidats convoqués au concours écrit", date:"2025-09-05", pdf:"https://f.fst-usmba.ac.ma/preinscription/2025-2026/mst/admis/ecrit/listes/liste%20des%20candidats-pr%C3%A9sselct_GCB-25-26.pdf" },
+      { id:"tacqi-bm-pre", titre:"Master Techniques d'Analyse et Contrôle Qualité Industriel", fac:"FST Beni Mellal", type:"pré-sélectionne", desc:"listes des candidats convoqués au concours écrit", date:"2025-09-05", pdf:"https://fstbm.ac.ma/web/content/1479140/MSTTACQI-concours.pdf" }
+    ];
+
+    // ====== Actualités (liées aux masters) ======
+    const news = [
+      { id:"n1", title:"Résultats de pré‑sélection — Master Biotechnologie Microbienne (FST Fès)", date:"2025-09-07", category:"master", refMasterId:"bm-fes-pre", body:"Listes des candidats convoqués au concours écrit.", link:"https://f.fst-usmba.ac.ma/preinscription/2025-2026/mst/admis/ecrit/listes/liste%20des%20candidats-pr%C3%A9selct_BM-%2025-26_actualis%C3%A9e.pdf" },
+      { id:"n2", title:"Résultats de pré‑sélection — MAGBio (FST Mohammedia)", date:"2025-09-05", category:"master", refMasterId:"magbio-moh-pre", body:"Liste des candidats convoqués.", link:"https://www.fstm.ac.ma/formation_initiale/files/mst/concours_2025_2026/ecrit/candidatsretenusconcoursMasterMAGBio.pdf" },
+      { id:"n3", title:"Bourses de mobilité : clôture le 30/09", date:"2025-09-05", category:"general", body:"Ne tardez pas à déposer votre dossier (voir modalités au secrétariat).", link:null },
+      { id:"n4", title:"Conférence CRISPR — 21 septembre", date:"2025-09-03", category:"general", body:"Invitée : Pr. L. Haddad. Amphi A, 10h.", link:null },
+      { id:"n5", title:"Pré‑sélection — TACQI (FST Beni Mellal)", date:"2025-09-05", category:"master", refMasterId:"tacqi-bm-pre", body:"Candidats convoqués au concours écrit.", link:"https://fstbm.ac.ma/web/content/1479140/MSTTACQI-concours.pdf" }
+    ];
+
+    // ====== Utilitaires ======
+    const $ = s => document.querySelector(s);
+    const el = (tag, attrs={}, html="") => { const n=document.createElement(tag); Object.entries(attrs).forEach(([k,v])=>v!=null&&n.setAttribute(k,String(v))); if(html) n.innerHTML=html; return n; };
+    const fmtDate = iso => new Date(iso).toLocaleDateString('fr-FR',{day:'2-digit',month:'long',year:'numeric'});
+    const byDateDesc = (a,b)=> new Date(b.date)-new Date(a.date);
+
+    // Normalisation texte (pour recherches sans accents)
+    const norm = s => (s||"").toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+    const canonType = (s)=>{
+      const x = norm(s).replace(/[^a-z]/g,'');
+      if(['preinscription','preselection','preselectionne','preselec','preselectionnee'].includes(x)) return 'preselection';
+      if(['admission','admis'].includes(x)) return 'admission';
+      if(['listeattente','attente','reserve','listeattentee'].includes(x)) return 'liste_attente';
+      return x||'';
+    };
+
+    // ====== ELEMENTS ======
+    const list = document.getElementById('masters-list');
+    const empty = document.getElementById('empty');
+    const toast = document.getElementById('toast');
+    const facSelect = document.getElementById('fac');
+    const typeSelect = document.getElementById('type');
+    const triSelect = document.getElementById('tri');
+    const qInput = document.getElementById('q');
+
+    // Facultés dynamiques
+    [...new Set(masters.map(m => m.fac))].sort().forEach(f=> facSelect.appendChild(el("option",{value:f}, f)));
+
+    // Date & footer
+    document.getElementById('maj').innerHTML = `Mise à jour le <time>${new Date().toLocaleDateString('fr-FR',{ day:'2-digit', month:'long', year:'numeric'})}</time>`;
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ====== Rendu d’une carte Master ======
+    const iconPdf = `<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.7"/><path d="M13 2v5h5" stroke="currentColor" stroke-width="1.7"/><path d="M7 16h10M7 12h6" stroke="currentColor" stroke-width="1.7"/></svg>`;
+    const iconCopy = `<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 8h10a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.7"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.7"/></svg>`;
+
+    function badgeFor(type){
+      const c = canonType(type);
+      const labels = { preselection:'Pré‑sélection', admission:'Admission', liste_attente:'Liste d\'attente' };
+      const cls = { preselection:'ok', admission:'ok', liste_attente:'warn' };
+      const txt = labels[c] || type;
+      return `<span class="badge ${cls[c]||''}">${txt}</span>`;
+    }
+
+    function card(m){
+      const aView = el("a",{class:"btn-ghost",href:m.pdf,target:"_blank",rel:"noopener", "aria-label":`${m.desc} — ${m.titre} (PDF)`}, `${iconPdf} Voir le PDF`);
+      const aDl   = el("a",{class:"btn-primary",href:m.pdf,download:"", "aria-label":`Télécharger — ${m.titre}`}, `${iconPdf} Télécharger`);
+      const aCopy = el("button",{class:"btn-ghost",type:"button","data-copy":m.pdf}, `${iconCopy} Copier le lien`);
+
+      const art = el("article",{class:"master-card","data-fac":m.fac,"data-type":canonType(m.type),"data-title":norm(m.titre)});
+      if(m.id) art.id = m.id; // important pour le lien depuis l’Actu
+      art.innerHTML = `
+        <header class="master-head">
+          <h4 class="master-title">${m.titre}</h4>
+          <div class="master-meta">
+            ${badgeFor(m.type)}
+            <span class="badge">${m.fac}</span>
+            <span class="badge" title="Date de publication"><span aria-hidden="true">🗓️</span> ${fmtDate(m.date)}</span>
+          </div>
+        </header>
+        <div class="master-body">
+          <p class="master-desc">${m.desc}</p>
+          <div class="actions-row"></div>
+        </div>
+      `;
+      art.querySelector(".actions-row").append(aView,aDl,aCopy);
+      // Copie lien
+      aCopy.addEventListener("click", async ()=>{
+        try{ await navigator.clipboard.writeText(m.pdf); showToast("Lien copié !"); }
+        catch{ showToast("Impossible de copier le lien"); }
+      });
+      return art;
+    }
+
+    // ====== Rendu Masters ======
+    let current = [...masters];
+    function render(){
+      list.innerHTML = "";
+      if(current.length===0){ empty.hidden = false; return; }
+      empty.hidden = true;
+      current.forEach(m => list.appendChild(card(m)));
+    }
+
+    // ====== Filtres / recherche / tri Masters ======
+    function applyFilters(){
+      const q = norm(qInput.value.trim());
+      const fac = facSelect.value;
+      const selType = typeSelect.value; // valeurs canoniques: '', 'preselection', 'admission', 'liste_attente'
+      current = masters.filter(m=>{
+        const inTitre = norm(m.titre).includes(q);
+        const inFac = norm(m.fac).includes(q);
+        const okQ = !q || inTitre || inFac;
+        const okF = !fac || m.fac === fac;
+        const okT = !selType || canonType(m.type) === selType;
+        return okQ && okF && okT;
+      });
+      switch(triSelect.value){
+        case "alpha": current.sort((a,b)=>a.titre.localeCompare(b.titre)); break;
+        case "fac":   current.sort((a,b)=>a.fac.localeCompare(b.fac)||a.titre.localeCompare(b.titre)); break;
+        default:      current.sort((a,b)=>new Date(b.date)-new Date(a.date)); break;
+      }
+      render();
+    }
+
+    ["input","change"].forEach(ev=>{
+      qInput.addEventListener(ev, applyFilters);
+      facSelect.addEventListener(ev, applyFilters);
+      typeSelect.addEventListener(ev, applyFilters);
+      triSelect.addEventListener(ev, applyFilters);
+    });
+
+    // ====== Toast ======
+    let tmo=null;
+    function showToast(msg){ toast.textContent = msg; toast.classList.add("show"); clearTimeout(tmo); tmo=setTimeout(()=>toast.classList.remove("show"), 1800); }
+
+    // ====== Thème ======
+    const toggle = document.getElementById('themeToggle');
+    const STORE = 'bioatp-theme';
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    function applyTheme(mode){
+      const light = mode === 'light';
+      document.body.classList.toggle('light', light);
+      toggle.setAttribute('aria-pressed', String(!light));
+      localStorage.setItem(STORE, mode);
+    }
+    applyTheme(localStorage.getItem(STORE) || (prefersDark ? 'dark' : 'light'));
+    toggle.addEventListener('click', () => {
+      const nowLight = !document.body.classList.contains('light');
+      applyTheme(nowLight ? 'light' : 'dark');
+    });
+
+    // ====== Actualités enrichies ======
+    const newsList = document.getElementById("news-list");
+    const newsViewport = document.getElementById("news-viewport");
+    const newsCounter = document.getElementById("newsCounter");
+    const prevBtn = document.getElementById("prevNews");
+    const nextBtn = document.getElementById("nextNews");
+    const tabs = Array.from(document.querySelectorAll(".news-toolbar .tab"));
+
+    const isNew = iso => ((Date.now()-new Date(iso).getTime())/(1000*60*60*24)) <= 10;
+    let filteredNews = [...news].sort(byDateDesc);
+    let index = 0, autoTimer = null;
+
+    function renderNews(){
+      newsList.innerHTML = "";
+      const items = filteredNews.map(item=>{
+        const li = document.createElement("li");
+        li.className = "news-item slide-enter";
+        li.setAttribute("data-id", item.id);
+        li.innerHTML = `
+          <h4 class="news-title">${item.title} ${isNew(item.date)?`<span class=\"badge-new\">Nouveau</span>`:""}</h4>
+          <div class="news-meta">
+            <span class="tag ${item.category==='master'?'master':''}">${item.category==='master'?'Master':'Général'}</span>
+            <time datetime="${item.date}">${fmtDate(item.date)}</time>
+          </div>
+          <p class="news-body" style="margin:0">${item.body||""}</p>
+          <div class="news-actions">
+            ${item.refMasterId ? `<button class=\"news-btn\" data-goto=\"${item.refMasterId}\">Voir le master</button>` : ""}
+            ${item.link ? `<a class=\"news-btn\" href=\"${item.link}\" target=\"_blank\" rel=\"noopener\">Ouvrir le lien</a>` : ""}
+          </div>
+        `;
+        return li;
+      });
+
+      if(items.length){
+        items.forEach((el,i)=>{ if(i!==index) el.style.display="none"; newsList.appendChild(el); });
+        updateCounter();
+      }else{
+        newsList.innerHTML = `<li class=\"news-item\"><em class=\"muted\">Aucune actualité.</em></li>`;
+        index = 0; updateCounter();
+      }
+
+      // actions "Voir le master"
+      newsList.querySelectorAll("[data-goto]").forEach(btn=>{
+        btn.addEventListener("click", ()=>{
+          const id = btn.getAttribute("data-goto");
+          const target = document.getElementById(id);
+          if(target){
+            target.scrollIntoView({behavior:"smooth", block:"center"});
+            target.classList.add("highlight");
+            setTimeout(()=>target.classList.remove("highlight"), 1300);
+          }
+        });
+      });
+    }
+
+    function updateCounter(){ newsCounter.textContent = filteredNews.length ? `${index+1} / ${filteredNews.length}` : ""; }
+    function showAt(i){
+      const items = Array.from(newsList.children);
+      if(!items.length) return;
+      items.forEach((el,idx)=>{ el.style.display = idx===i ? "" : "none"; if(idx===i){ el.classList.remove("slide-enter"); void el.offsetWidth; el.classList.add("slide-enter"); } });
+      index = i; updateCounter();
+    }
+    function next(){ if(!filteredNews.length) return; showAt((index+1)%filteredNews.length); }
+    function prev(){ if(!filteredNews.length) return; showAt((index-1+filteredNews.length)%filteredNews.length); }
+
+    function startAuto(){ stopAuto(); if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; autoTimer=setInterval(next, 4200); }
+    function stopAuto(){ if(autoTimer){ clearInterval(autoTimer); autoTimer=null; } }
+
+    newsViewport.addEventListener("mouseenter", stopAuto);
+    newsViewport.addEventListener("mouseleave", startAuto);
+    newsViewport.addEventListener("focusin", stopAuto);
+    newsViewport.addEventListener("focusout", startAuto);
+    nextBtn.addEventListener("click", ()=>{ stopAuto(); next(); startAuto(); });
+    prevBtn.addEventListener("click", ()=>{ stopAuto(); prev(); startAuto(); });
+
+    tabs.forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        tabs.forEach(t=>t.setAttribute("aria-selected","false"));
+        btn.setAttribute("aria-selected","true");
+        const cat = btn.getAttribute("data-filter"); // "" | "master" | "general"
+        filteredNews = news.filter(n => !cat || n.category===cat).sort(byDateDesc);
+        index = 0; renderNews(); startAuto();
+      });
+    });
+
+    // Gestes tactile (swiper) pour mobiles
+    let touchStartX = 0, touchEndX = 0, touchStartY = 0, touchEndY = 0;
+    const SWIPE_THRESHOLD = 40; // px
+    const newsViewportEl = document.getElementById('news-viewport');
+    newsViewportEl.addEventListener('touchstart', (e)=>{
+      const t = e.changedTouches[0];
+      touchStartX = t.clientX; touchStartY = t.clientY;
+    }, {passive:true});
+    newsViewportEl.addEventListener('touchend', (e)=>{
+      const t = e.changedTouches[0];
+      touchEndX = t.clientX; touchEndY = t.clientY;
+      const dx = touchEndX - touchStartX; const dy = Math.abs(touchEndY - touchStartY);
+      if(Math.abs(dx) > SWIPE_THRESHOLD && dy < SWIPE_THRESHOLD){
+        stopAuto();
+        if(dx < 0) next(); else prev();
+        startAuto();
+      }
+    }, {passive:true});
+
+    // ====== Lancement ======
+    applyFilters();      // remplit et rend les cartes Masters
+    renderNews();        // affiche les actualités
+    startAuto();         // lance le slider auto
+  </script>
+</body>
+</html>
