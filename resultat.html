@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>bioATP — Résultats Masters</title>
   <meta name="description" content="Résultats des Masters — pré-inscription et admission. Actualités, recherche, filtres et téléchargement des PDF." />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9422433134575796"
+     crossorigin="anonymous"></script>
   <style>
     /* ================= Base & thèmes (modernisé) ================= */
     *,*::before,*::after{box-sizing:border-box}
@@ -214,6 +216,7 @@
             <option value="">Tous les types</option>
             <option value="preselection">Pré‑sélection</option>
             <option value="admission">Admission</option>
+            <option value="oral">Oral</option>
             <option value="liste_attente">Liste d’attente</option>
           </select>
           <select id="tri" class="select" aria-label="Trier">
@@ -322,7 +325,7 @@
   <script type="module">
     // ====== Données Masters (vos liens + types variés) ======
     const masters = [
-      { id:"sge-moh-pre", titre:"Master - Sciences et Gestion de l'Environnement (SGE)", fac:"FST Mohammedia", type:"pré-sélectionne", desc:"listes des candidats convoqués à l'oral", date:"2025-09-08", pdf:"https://www.fstm.ac.ma/formation_initiale/files/mst/concours_2025_2026/oral/candidatsretenusconcoursMasterSGE_ORAL.pdf" },
+      { id:"sge-moh-pre", titre:"Master - Sciences et Gestion de l'Environnement (SGE)", fac:"FST Mohammedia", type:"Oral", desc:"listes des candidats convoqués à l'oral", date:"2025-09-08", pdf:"https://www.fstm.ac.ma/formation_initiale/files/mst/concours_2025_2026/oral/candidatsretenusconcoursMasterSGE_ORAL.pdf" },
       { id:"mqsa-moh-pre", titre:"Master - Management de la Qualité et Sécurité des Aliments (MQSA)", fac:"FST Mohammedia", type:"pré-sélectionne", desc:"listes des candidats convoqués au concours écrit", date:"2025-09-05", pdf:"https://www.fstm.ac.ma/formation_initiale/files/mst/concours_2025_2026/ecrit/candidatsretenusconcoursMSTMQSA.pdf" },
       { id:"mqse-moh-pre", titre:"Master - Management de la Qualité, de la Sécurité et de l’Environnement (MQSE)", fac:"FST Mohammedia", type:"pré-sélectionne", desc:"listes des candidats convoqués au concours écrit", date:"2025-09-05", pdf:"https://www.fstm.ac.ma/formation_initiale/files/mst/concours_2025_2026/ecrit/candidatsretenusconcoursMasterMQSE.pdf" },
       { id:"magbio-moh-pre", titre:"Master - Microbiologie Appliquée et Génie-Biologique (MAGBio)", fac:"FST Mohammedia", type:"pré-sélectionne", desc:"listes des candidats convoqués au concours écrit", date:"2025-09-05", pdf:"https://www.fstm.ac.ma/formation_initiale/files/mst/concours_2025_2026/ecrit/candidatsretenusconcoursMasterMAGBio.pdf" },
@@ -353,6 +356,7 @@
       const x = norm(s).replace(/[^a-z]/g,'');
       if(['preinscription','preselection','preselectionne','preselec','preselectionnee'].includes(x)) return 'preselection';
       if(['admission','admis'].includes(x)) return 'admission';
+      if(['Oral','listes des candidats convoqués à l oral'].includes(x)) return 'Oral';
       if(['listeattente','attente','reserve','listeattentee'].includes(x)) return 'liste_attente';
       return x||'';
     };
@@ -379,8 +383,8 @@
 
     function badgeFor(type){
       const c = canonType(type);
-      const labels = { preselection:'Pré‑sélection', admission:'Admission', liste_attente:'Liste d\'attente' };
-      const cls = { preselection:'ok', admission:'ok', liste_attente:'warn' };
+      const labels = { preselection:'Pré‑sélection', admission:'Admission', oral:'Oral',liste_attente:'Liste d\'attente' };
+      const cls = { preselection:'ok', admission:'ok',oral:'ok', liste_attente:'warn' };
       const txt = labels[c] || type;
       return `<span class="badge ${cls[c]||''}">${txt}</span>`;
     }
