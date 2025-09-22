@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat Microbiologie - Encyclopédie Interactive</title>
+<style>
+  body {
+    margin: 0; font-family: Arial, sans-serif; background: #0f172a; color: #f1f5f9;
+    display: flex; height: 100vh; overflow: hidden;
+  }
+  /* Sidebar */
+  #sidebar {
+    width: 250px; background: #1e293b; padding: 20px; overflow-y: auto;
+  }
+  #sidebar h2 { margin-top: 0; color: #06b6d4; }
+  #sidebar ul { list-style: none; padding: 0; }
+  #sidebar li { padding: 8px; cursor: pointer; border-radius: 6px; }
+  #sidebar li:hover { background: #334155; }
+
+  /* Main content */
+  #main {
+    flex: 1; display: flex; flex-direction: column;
+  }
+  header {
+    background: #1e293b; padding: 12px 20px; font-size: 20px; font-weight: bold;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  #chat { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+  .msg { max-width: 70%; padding: 12px; border-radius: 10px; line-height: 1.4; }
+  .user { align-self: flex-end; background: #06b6d4; color: #021; border-bottom-right-radius: 4px; }
+  .bot { align-self: flex-start; background: #1e293b; border-bottom-left-radius: 4px; }
+  #inputBar { display: flex; padding: 12px; background: #1e293b; }
+  #inputBar input { flex: 1; padding: 10px; border-radius: 8px; border: none; outline: none; }
+  #inputBar button { margin-left: 8px; background: #06b6d4; border: none; color: #021; padding: 10px 14px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+  /* Image in chat */
+  .msg img { max-width: 100%; border-radius: 8px; margin-top: 6px; }
+  /* Quiz */
+  #quiz { display: none; padding: 20px; background: #1e293b; }
+  #quiz h3 { color: #06b6d4; }
+  #quiz button { margin-top: 10px; background: #06b6d4; color: #021; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; }
+</style>
+</head>
+<body>
+<div id="sidebar">
+  <h2>Sujets Micro</h2>
+  <ul id="topicsList"></ul>
+</div>
+
+<div id="main">
+  <header>Chat Micro 🦠 <span style="font-size:14px; color:#94a3b8">Assistant Microbiologie</span></header>
+  <div id="chat"></div>
+
+  <div id="inputBar">
+    <input id="userInput" type="text" placeholder="Pose ta question sur microbiologie..." />
+    <button onclick="sendMsg()">Envoyer</button>
+  </div>
+
+  <div id="quiz">
+    <h3>Quiz : <span id="quizTopic"></span></h3>
+    <div id="quizQ"></div>
+    <div id="quizOpts"></div>
+    <div id="quizResult"></div>
+    <button onclick="nextQuiz()">Question suivante</button>
+  </div>
+</div>
+
+<script>
+// --------- Base de connaissances ---------
+const KB = [
+  {topic:"ADN", desc:"L'ADN (acide désoxyribonucléique) porte l'information génétique.", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/DNA_chemical_structure.svg/220px-DNA_chemical_structure.svg.png"},
+  {topic:"ARN", desc:"L'ARN contient l'uracile (U) au lieu de la thymine (T). Types : mRNA, tRNA, rRNA.", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/RNA-secondary-structure.svg/220px-RNA-secondary-structure.svg.png"},
+  {topic:"Bactérie", desc:"Organisme unicellulaire procaryote. Formes : coques, bacilles, spirilles.", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/E-coli_NIAID.jpg/220px-E-coli_NIAID.jpg"},
+  {topic:"Virus", desc:"Agents infectieux constitués d'une capside protéique et d'ADN ou ARN.", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Influenza_virus_particles.jpg/220px-Influenza_virus_particles.jpg"},
+  {topic:"Plasmide", desc:"Petit ADN circulaire chez les bactéries, utilisé comme vecteur en génétique.", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Plasmid.png/220px-Plasmid.png"},
+  {topic:"PCR", desc:"La PCR amplifie l'ADN grâce à une ADN polymérase thermostable.", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/PCR.svg/220px-PCR.svg.png"},
+  {topic:"Antibiotique", desc:"Substances qui tuent ou inhibent les bactéries.", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Penicillin_structure.svg/220px-Penicillin_structure.svg.png"},
+  {topic:"Microbiome", desc:"Ensemble des microorganismes vivant dans un environnement (ex : intestin).", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Human_microbiome.png/220px-Human_microbiome.png"}
+];
+
+// --------- Liste des sujets ---------
+const topicsList = document.getElementById("topicsList");
+KB.forEach(k=>{
+  const li = document.createElement("li");
+  li.textContent = k.topic;
+  li.onclick = ()=>showTopic(k);
+  topicsList.appendChild(li);
+});
+
+// --------- Affichage d'un sujet ---------
+const chat = document.getElementById("chat");
+function showTopic(k) {
+  chat.innerHTML = ""; // clear
+  addMsg(`${k.topic} 🦠 : ${k.desc}`, "bot", k.img);
+}
+
+function addMsg(text, sender="bot", img=null) {
+  const div = document.createElement("div");
+  div.className = "msg " + sender;
+  div.textContent = text;
+  if(img){
+    const i = document.createElement("img");
+    i.src = img;
+    div.appendChild(i);
+  }
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+const input = document.getElementById("userInput");
+function searchKB(query){
+  query = query.toLowerCase();
+  for(let k of KB){
+    if(query.includes(k.topic.toLowerCase())) return k;
+  }
+  return null;
+}
+
+function sendMsg(){
+  const text = input.value.trim();
+  if(!text) return;
+  addMsg(text, "user");
+  const k = searchKB(text);
+  if(k){
+    setTimeout(()=>addMsg(`${k.topic} 🦠 : ${k.desc}`, "bot", k.img), 300);
+  } else {
+    setTimeout(()=>addMsg("❌ Désolé, je n'ai pas trouvé d'info. Essaie un autre mot-clé.", "bot"), 300);
+  }
+  input.value="";
+}
+
+// --------- Quiz simple ---------
+const quizData = {
+  "ADN":[
+    {q:"ADN signifie ?", opts:["Acide désoxyribonucléique","Acide ribonucléique","Acide aminé","Acide lactique"], answer:0},
+    {q:"Quelle base n'est pas dans l'ADN ?", opts:["Adenine","Thymine","Uracile","Guanine"], answer:2}
+  ],
+  "Virus":[
+    {q:"Les virus ont besoin de ?", opts:["Cellule hôte","Eau","Nutriments","Lumière"], answer:0}
+  ]
+};
+let currentQuiz=[], quizIndex=0;
+const quizDiv=document.getElementById("quiz");
+const quizQ=document.getElementById("quizQ");
+const quizOpts=document.getElementById("quizOpts");
+const quizResult=document.getElementById("quizResult");
+const quizTopicSpan=document.getElementById("quizTopic");
+
+function startQuiz(topic){
+  if(!quizData[topic]) {alert("Pas de quiz pour ce sujet."); return;}
+  currentQuiz = quizData[topic];
+  quizIndex = 0;
+  quizDiv.style.display="block";
+  showQuiz();
+}
+
+function showQuiz(){
+  if(quizIndex>=currentQuiz.length){quizDiv.style.display="none"; return;}
+  const q = currentQuiz[quizIndex];
+  quizTopicSpan.textContent = q.q;
+  quizQ.textContent = q.q;
+  quizOpts.innerHTML="";
+  q.opts.forEach((o,i)=>{
+    const b=document.createElement("button");
+    b.textContent=o;
+    b.onclick=()=>checkAnswer(i);
+    quizOpts.appendChild(b);
+  });
+  quizResult.textContent="";
+}
+
+function checkAnswer(i){
+  const q=currentQuiz[quizIndex];
+  if(i===q.answer){quizResult.textContent="✅ Correct !";}
+  else{quizResult.textContent=`❌ Incorrect ! Réponse : ${q.opts[q.answer]}`;}
+}
+
+function nextQuiz(){quizIndex++; showQuiz();}
+
+// Message de bienvenue
+addMsg("Salut 👋 ! Je suis Chat Micro, ton assistant en microbiologie. Clique sur un sujet ou pose-moi une question !");
+</script>
+</body>
+</html>
